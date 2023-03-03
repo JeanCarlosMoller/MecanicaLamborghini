@@ -64,10 +64,10 @@ CREATE TABLE ItemPeca
  ValorUn FLOAT NOT NULL,  
  ValorTotal FLOAT NOT NULL,  
  id_Orcamento INT,  
- id_Pecas INT  
+ id_Peca INT  
 ); 
 
-CREATE TABLE Pecas 
+CREATE TABLE Peca 
 ( 
  id INT PRIMARY KEY AUTO_INCREMENT,    
  Descricao VARCHAR(255) NOT NULL,  
@@ -81,4 +81,4 @@ ALTER TABLE Carro ADD FOREIGN KEY(id_Usuario) REFERENCES Usuario (id);
 ALTER TABLE ItemServico ADD FOREIGN KEY(id_Servico) REFERENCES Servico (id);
 ALTER TABLE ItemServico ADD FOREIGN KEY(id_Orcamento) REFERENCES Orcamento (id);
 ALTER TABLE ItemPeca ADD FOREIGN KEY(id_Orcamento) REFERENCES Orcamento (id);
-ALTER TABLE ItemPeca ADD FOREIGN KEY(id_Pecas) REFERENCES Pecas (id);
+ALTER TABLE ItemPeca ADD FOREIGN KEY(id_Peca) REFERENCES Peca (id);
