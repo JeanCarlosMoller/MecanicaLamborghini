@@ -1,0 +1,84 @@
+CREATE SCHEMA `mecanica_lamborghini`;
+
+USE `mecanica_lamborghini`;
+
+CREATE TABLE Usuario 
+( 
+ id INT PRIMARY KEY AUTO_INCREMENT,   
+ TipoUser CHAR(1) NOT NULL,  
+ Nome VARCHAR(255) NOT NULL,  
+ CPF VARCHAR(14) NOT NULL,  
+ Celular VARCHAR(11) NOT NULL,  
+ email VARCHAR(255) NOT NULL,  
+ Login VARCHAR(255) NOT NULL,  
+ Senha VARCHAR(255) NOT NULL, 
+ unique (login)
+); 
+
+CREATE TABLE Orcamento 
+( 
+ id INT PRIMARY KEY AUTO_INCREMENT,    
+ TotalPeca FLOAT NOT NULL,  
+ TotalServico FLOAT NOT NULL,  
+ ValorTotal FLOAT NOT NULL,  
+ Numero INT NOT NULL,  
+ Descricao VARCHAR(255) NOT NULL,  
+ Status VARCHAR(255) NOT NULL,  
+ id_Carro INT,  
+ id_Usuario INT  
+); 
+
+CREATE TABLE Carro 
+( 
+ id INT PRIMARY KEY AUTO_INCREMENT,   
+ Modelo VARCHAR(255) NOT NULL,  
+ Cor VARCHAR(255) NOT NULL,  
+ Placa VARCHAR(10) NOT NULL,  
+ Ano INT(4) NOT NULL,  
+ Marca VARCHAR(255) NOT NULL,  
+ id_Usuario INT  
+); 
+
+CREATE TABLE Servico 
+( 
+ id INT PRIMARY KEY AUTO_INCREMENT,  
+ Descricao VARCHAR(255) NOT NULL,  
+ ValorUnAtual FLOAT NOT NULL,  
+ UnMedida FLOAT NOT NULL  
+); 
+
+CREATE TABLE ItemServico 
+( 
+ id INT PRIMARY KEY AUTO_INCREMENT,    
+ Qnt INT(10) NOT NULL,  
+ ValorUn FLOAT NOT NULL,  
+ ValorTotal FLOAT NOT NULL,  
+ id_Servico INT,  
+ id_Orcamento INT  
+); 
+
+CREATE TABLE ItemPeca 
+( 
+ id INT PRIMARY KEY AUTO_INCREMENT,   
+ Qnt INT(10) NOT NULL,  
+ ValorUn FLOAT NOT NULL,  
+ ValorTotal FLOAT NOT NULL,  
+ id_Orcamento INT,  
+ id_Pecas INT  
+); 
+
+CREATE TABLE Pecas 
+( 
+ id INT PRIMARY KEY AUTO_INCREMENT,    
+ Descricao VARCHAR(255) NOT NULL,  
+ ValorUnAtual FLOAT NOT NULL,  
+ UnMedida INT  
+);
+
+ALTER TABLE Orcamento ADD FOREIGN KEY(id_Carro) REFERENCES Carro (id);
+ALTER TABLE Orcamento ADD FOREIGN KEY(id_Usuario) REFERENCES Usuario (id);
+ALTER TABLE Carro ADD FOREIGN KEY(id_Usuario) REFERENCES Usuario (id);
+ALTER TABLE ItemServico ADD FOREIGN KEY(id_Servico) REFERENCES Servico (id);
+ALTER TABLE ItemServico ADD FOREIGN KEY(id_Orcamento) REFERENCES Orcamento (id);
+ALTER TABLE ItemPeca ADD FOREIGN KEY(id_Orcamento) REFERENCES Orcamento (id);
+ALTER TABLE ItemPeca ADD FOREIGN KEY(id_Pecas) REFERENCES Pecas (id);
