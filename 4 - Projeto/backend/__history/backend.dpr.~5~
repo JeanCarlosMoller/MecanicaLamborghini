@@ -14,6 +14,8 @@ uses
   UDAO.Intf in 'model\dao\UDAO.Intf.pas',
   UUtil.Banco in 'model\utils\UUtil.Banco.pas';
 
+>>>>>>> bdf46c299314077b9c8c7598fcb936da22f7af01
+
 begin
 
   THorse.Get('/ping',
