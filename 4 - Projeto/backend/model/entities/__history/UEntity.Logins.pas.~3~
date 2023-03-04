@@ -1,0 +1,67 @@
+unit UEntity.Logins;
+
+interface
+
+type
+  TLogin = class
+  private
+    FLogin: String;
+    FSenha: String;
+    FToken: String;
+
+    function GetLogin: String;
+    function GetSenha: String;
+    function GetToken: String;
+
+    procedure SetLogin(const Value: String);
+    procedure SetSenha(const Value: String);
+    procedure SetToken(const Value: String);
+
+  public
+    constructor Create(const aLogin, aSenha: String);
+
+    property Login: String read GetLogin write SetLogin;
+    property Senha: String read GetSenha write SetSenha;
+    property Token: String read GetToken write SetToken;
+  end;
+
+implementation
+
+{ TLogin }
+
+constructor TLogin.Create(const aLogin, aSenha: String);
+begin
+
+end;
+
+function TLogin.GetLogin: String;
+begin
+
+end;
+
+function TLogin.GetSenha: String;
+begin
+
+end;
+
+function TLogin.GetToken: String;
+begin
+
+end;
+
+procedure TLogin.SetLogin(const Value: String);
+begin
+
+end;
+
+procedure TLogin.SetSenha(const Value: String);
+begin
+
+end;
+
+procedure TLogin.SetToken(const Value: String);
+begin
+
+end;
+
+end.

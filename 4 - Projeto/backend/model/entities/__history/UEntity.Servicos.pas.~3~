@@ -1,0 +1,107 @@
+unit UEntity.Servicos;
+
+interface
+
+uses
+  System.JSON;
+
+type
+  TServico = class
+  private
+    FId: Integer;
+    FDescricao: String;
+    FValorUnAtual: Double;
+    FUnMedida: Double;
+    FJSON: TJSONObject;
+
+    function GetId: Integer;
+    function GetDescricao: String;
+    function GetValorUnAtual: Double;
+    function GetUnMedida: Double;
+    function GetJSON: TJSONObject;
+
+    procedure SetId(const Value: Integer);
+    procedure SetDescricao(const Value: String);
+    procedure SetValorUnAtual(const Value: Double);
+    procedure SetUnMedida(const Value: Double);
+
+  public
+    constructor Create; overload;
+    constructor Create(const aId: Integer); overload;
+
+    destructor Destroy; override;
+
+    property Id: Integer read GetId write SetId;
+    property Descricao: String read GetDescricao write SetDescricao;
+    property ValorUnAtual: Double read GetValorUnAtual write SetValorUnAtual;
+    property UnMedida: Double read GetUnMedida write SetUnMedida;
+    property JSON: TJSONObject read GetJSON;
+  end;
+
+implementation
+
+{ TServico }
+
+constructor TServico.Create;
+begin
+  FJSON := TJSONObject.Create;
+end;
+
+constructor TServico.Create(const aId: Integer);
+begin
+  FId := aId;
+  Self.Create;
+end;
+
+destructor TServico.Destroy;
+begin
+  FreeAndNil(FJSON);
+  inherited;
+end;
+
+function TServico.GetDescricao: String;
+begin
+
+end;
+
+function TServico.GetId: Integer;
+begin
+
+end;
+
+function TServico.GetJSON: TJSONObject;
+begin
+
+end;
+
+function TServico.GetUnMedida: Double;
+begin
+
+end;
+
+function TServico.GetValorUnAtual: Double;
+begin
+
+end;
+
+procedure TServico.SetDescricao(const Value: String);
+begin
+
+end;
+
+procedure TServico.SetId(const Value: Integer);
+begin
+
+end;
+
+procedure TServico.SetUnMedida(const Value: Double);
+begin
+
+end;
+
+procedure TServico.SetValorUnAtual(const Value: Double);
+begin
+
+end;
+
+end.
