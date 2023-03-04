@@ -138,6 +138,7 @@ begin
   FJSON.AddPair('email',       FEmail);
   FJSON.AddPair('login',       FLogin);
   FJSON.AddPair('senha',       FSenha);
+  Result := FJSON;
 end;
 
 function TUsuario.GetLogin: String;
