@@ -39,6 +39,7 @@ type
     constructor Create; overload;
     constructor Create(const aId: Integer); overload;
     constructor Create(const aUsuario: TUsuario); overload;
+
     constructor Create(aId, aAno: Integer; aModelo, aCor, aPlaca, aMarca: String;
                         aUsuario: TUsuario); overload;
 

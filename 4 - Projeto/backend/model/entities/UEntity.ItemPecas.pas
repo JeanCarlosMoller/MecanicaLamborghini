@@ -1,44 +1,44 @@
-unit UEntity.ItemServicos;
+unit UEntity.ItemPecas;
 
 interface
 
 uses
-  UEntity.Servicos,
   UEntity.Orcamentos,
+  UEntity.Pecas,
   System.JSON;
 
 type
-  TItemServico = class
+  TItemPecas = class
   private
     FId: Integer;
     FQnt: Integer;
     FValorUn: Double;
     FValorTotal: Double;
-    FServico: TServico;
     FOrcamento: TOrcamento;
+    FPeca: TPeca;
     FJSON: TJSONObject;
 
     function GetId: Integer;
     function GetQnt: Integer;
     function GetValorUn: Double;
     function GetValorTotal: Double;
-    function GetServico: TServico;
     function GetOrcamento: TOrcamento;
+    function GetPeca: TPeca;
     function GetJSON: TJSONObject;
 
     procedure SetId(const Value: Integer);
     procedure SetQnt(const Value: Integer);
     procedure SetValorUn(const Value: Double);
     procedure SetValorTotal(const Value: Double);
-    procedure SetServico(const Value: TServico);
     procedure SetOrcamento(const Value: TOrcamento);
+    procedure SetPeca(const Value: TPeca);
 
   public
     constructor Create; overload;
-    constructor Create(const aId: Integer); overload;
+    constructor Create(aId: Integer); overload;
 
     constructor Create(aId, aQnt: Integer; aValorUn, aValorTotal: Double;
-        aServico: TServico; aOrcamento: TOrcamento); overload;
+      aOrcamento: TOrcamento; aPeca: TPeca); overload;
 
     destructor Destroy; override;
 
@@ -46,8 +46,8 @@ type
     property Qnt: Integer read GetQnt write SetQnt;
     property ValorUn: Double read GetValorUn write SetValorUn;
     property ValorTotal: Double read GetValorTotal write SetValorTotal;
-    property Servico: TServico read GetServico write SetServico;
     property Orcamento: TOrcamento read GetOrcamento write SetOrcamento;
+    property Peca: TPeca read GetPeca write SetPeca;
 
     property JSON: TJSONObject read GetJSON;
 
@@ -58,108 +58,108 @@ implementation
 uses
   SysUtils;
 
-{ TItemServico }
+{ TItemPecas }
 
-constructor TItemServico.Create;
+constructor TItemPecas.Create;
 begin
   FJSON := TJSONObject.Create;
 end;
 
-constructor TItemServico.Create(const aId: Integer);
+constructor TItemPecas.Create(aId: Integer);
 begin
   FId := aId;
   Self.Create;
 end;
 
-constructor TItemServico.Create(aId, aQnt: Integer; aValorUn, aValorTotal: Double;
-    aServico: TServico; aOrcamento: TOrcamento);
+constructor TItemPecas.Create(aId, aQnt: Integer; aValorUn, aValorTotal: Double;
+  aOrcamento: TOrcamento; aPeca: TPeca);
 begin
-   FId          := aId;
-   FQnt         := aQnt;
-   FValorUn     := aValorUn;
-   FValorTotal  := aValorTotal;
-   FServico     := aServico;
-   FOrcamento   := aOrcamento;
+  FId          := aId;
+  FQnt         := aQnt;
+  FValorUn     := aValorUn;
+  FValorTotal  := aValorTotal;
+  FOrcamento   := aOrcamento;
+  FPeca        := aPeca;
 
-   Self.Create;
+  Self.Create;
 end;
 
-destructor TItemServico.Destroy;
+destructor TItemPecas.Destroy;
 begin
-  FreeAndNil(FServico);
   FreeAndNil(FOrcamento);
+  FreeAndNil(FPeca);
   FreeAndNil(FJSON);
   inherited;
 end;
 
-function TItemServico.GetId: Integer;
+function TItemPecas.GetId: Integer;
 begin
   Result := FId;
 end;
 
-function TItemServico.GetJSON: TJSONObject;
+function TItemPecas.GetJSON: TJSONObject;
 begin
   FJSON.AddPair('id',          FId.ToString);
   FJSON.AddPair('qnt',         FQnt.ToString);
   FJSON.AddPair('valorUn',     FValorUn.ToString);
   FJSON.AddPair('valorTotal',  FValorTotal.ToString);
-  FJSON.AddPair('idServico',   FServico.id.ToString);
   FJSON.AddPair('idOrcamento', FOrcamento.id.ToString);
+  FJSON.AddPair('idPeca',   FPeca.id.ToString);
 
   Result := FJSON;
 end;
 
-function TItemServico.GetOrcamento: TOrcamento;
+function TItemPecas.GetOrcamento: TOrcamento;
 begin
   Result := FOrcamento;
 end;
 
-function TItemServico.GetQnt: Integer;
+function TItemPecas.GetPeca: TPeca;
+begin
+  Result := FPeca;
+end;
+
+function TItemPecas.GetQnt: Integer;
 begin
   Result := FQnt;
 end;
 
-function TItemServico.GetServico: TServico;
-begin
-  Result := FServico;
-end;
-
-function TItemServico.GetValorTotal: Double;
+function TItemPecas.GetValorTotal: Double;
 begin
   Result := FValorTotal;
 end;
 
-function TItemServico.GetValorUn: Double;
+function TItemPecas.GetValorUn: Double;
 begin
   Result := FValorUn;
 end;
 
-procedure TItemServico.SetId(const Value: Integer);
+procedure TItemPecas.SetId(const Value: Integer);
 begin
   FId := Value;
 end;
 
-procedure TItemServico.SetOrcamento(const Value: TOrcamento);
+procedure TItemPecas.SetOrcamento(const Value: TOrcamento);
 begin
   FOrcamento := Value;
 end;
 
-procedure TItemServico.SetQnt(const Value: Integer);
+procedure TItemPecas.SetPeca(const Value: TPeca);
+begin
+  FPeca := Value;
+end;
+
+procedure TItemPecas.SetQnt(const Value: Integer);
 begin
   FQnt := Value;
 end;
 
-procedure TItemServico.SetServico(const Value: TServico);
-begin
-  FServico := Value;
-end;
-
-procedure TItemServico.SetValorTotal(const Value: Double);
+procedure TItemPecas.SetValorTotal(const Value: Double);
 begin
   FValorTotal := Value;
 end;
 
-procedure TItemServico.SetValorUn(const Value: Double);
+procedure TItemPecas.SetValorUn(const Value: Double);
 begin
   FValorUn := Value;
 end;

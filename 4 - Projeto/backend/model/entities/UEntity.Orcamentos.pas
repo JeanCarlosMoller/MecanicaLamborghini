@@ -42,9 +42,10 @@ type
   public
     constructor Create; overload;
     constructor Create(const aId: Integer); overload;
-    constructor Create(const aId: Integer; const aTotalPeca, aTotalServico,
-      aValorTotal: Double; const aUsuario: TUsuario;
-      const aCarro: TCarro); overload;
+
+    constructor Create(aId: Integer; aTotalPeca, aTotalServico,
+      aValorTotal: Double; aDescricao, aStatus: String;
+        aCarro: TCarro; aUsuario: TUsuario); overload;
 
     destructor Destroy; override;
 
@@ -56,6 +57,8 @@ type
     property Status: String read GetStatus write SetStatus;
     property Carro: TCarro read GetCarro write SetCarro;
     property Usuario: TUsuario read GetUsuario write SetUsuario;
+
+    property JSON: TJSONObject read GetJSON;
 
   end;
 
@@ -77,16 +80,17 @@ begin
   Self.Create;
 end;
 
-constructor TOrcamento.Create(const aId: Integer;
-  const aTotalPeca, aTotalServico, aValorTotal: Double;
-  const aUsuario: TUsuario; const aCarro: TCarro);
+constructor TOrcamento.Create(aId: Integer; aTotalPeca, aTotalServico,
+  aValorTotal: Double; aDescricao, aStatus: String; aCarro: TCarro; aUsuario: TUsuario);
 begin
   FId           := aId;
   FTotalPeca    := aTotalPeca;
   FTotalServico := aTotalServico;
   FValorTotal   := aValorTotal;
-  FUsuario      := aUsuario;
+  FDescricao    := aDescricao;
+  FStatus       := aStatus;
   FCarro        := aCarro;
+  FUsuario      := aUsuario;
   Self.Create;
 end;
 
@@ -94,6 +98,7 @@ destructor TOrcamento.Destroy;
 begin
   FreeAndNil(FUsuario);
   FreeAndNil(FCarro);
+  FreeAndNil(FJSON);
   inherited;
 end;
 
