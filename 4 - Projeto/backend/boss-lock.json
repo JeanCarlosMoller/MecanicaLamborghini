@@ -18,6 +18,14 @@
 			"failed": false,
 			"changed": false
 		},
+		"github.com/hashload/horse-basic-auth": {
+			"name": "horse-basic-auth",
+			"version": "1.2.2",
+			"hash": "9457005815e08f71de80eea02a2d572a",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
 		"github.com/hashload/horse-cors": {
 			"name": "horse-cors",
 			"version": "1.0.5",

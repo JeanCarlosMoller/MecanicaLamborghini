@@ -21,7 +21,7 @@ uses
 
 constructor TDAOUsuario.Create;
 begin
-  FTabela := 'Usuario'
+  FTabela := 'usuario'
 end;
 
 function TDAOUsuario.ValidarLogin(const aUser, aPassword: String): Integer;
