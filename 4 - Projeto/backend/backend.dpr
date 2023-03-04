@@ -14,8 +14,16 @@ uses
   UDAO.Intf in 'model\dao\UDAO.Intf.pas',
   UUtil.Banco in 'model\utils\UUtil.Banco.pas',
   UDAO.Usuario in 'model\dao\UDAO.Usuario.pas',
+<<<<<<< HEAD
   UEntity.Orcamentos in 'model\entities\UEntity.Orcamentos.pas',
   UEntity.ItemServicos in 'model\entities\UEntity.ItemServicos.pas';
+=======
+  UDAO.ItemPeca in 'model\dao\UDAO.ItemPeca.pas',
+  UDAO.ItemServico in 'model\dao\UDAO.ItemServico.pas',
+  UDAO.Orcamento in 'model\dao\UDAO.Orcamento.pas',
+  UDAO.Servico in 'model\dao\UDAO.Servico.pas',
+  UDAO.Carro in 'model\dao\UDAO.Carro.pas';
+>>>>>>> main
 
 begin
 
