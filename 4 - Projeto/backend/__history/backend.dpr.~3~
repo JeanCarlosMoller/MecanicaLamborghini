@@ -6,9 +6,15 @@ uses
   Horse,
   System.SysUtils,
   UDAO.Pecas in 'model\dao\UDAO.Pecas.pas',
+<<<<<<< HEAD
   UDAO.Base in 'model\dao\UDAO.Base.pas',
   UDAO.Intf in 'model\dao\UDAO.Intf.pas',
   UUtil.Banco in 'model\utils\UUtil.Banco.pas';
+=======
+  UEntity.Servicos in 'model\entities\UEntity.Servicos.pas',
+  UEntity.Usuarios in 'model\entities\UEntity.Usuarios.pas',
+  UEntity.Logins in 'model\entities\UEntity.Logins.pas';
+>>>>>>> bdf46c299314077b9c8c7598fcb936da22f7af01
 
 begin
 

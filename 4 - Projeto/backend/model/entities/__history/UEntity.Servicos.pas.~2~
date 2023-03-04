@@ -1,0 +1,35 @@
+unit UEntity.Servicos;
+
+interface
+
+uses
+  System.JSON;
+
+type
+  TServico = class
+    private
+      FId: Integer;
+      FDescricao: String;
+      FValorUnAtual: Double;
+      FUnMedida: Double;
+      FJSON: TJSONObject;
+
+      function GetId: Integer;
+      function GetDescricao: String;
+      function GetValorUnAtual: Double;
+      function GetUnMedida: Double;
+      function GetJSON: TJSONObject;
+
+      procedure SetId(const Value: Integer);
+      procedure SetDescricao(const Value: Double);
+      procedure SetValorUnAtual(const Value: Double);
+      procedure SetUnMedida(const Value: Double);
+
+    public
+      constructor Create; overload;
+      constructor Create(const aId: Integer); overload;
+  end;
+
+implementation
+
+end.

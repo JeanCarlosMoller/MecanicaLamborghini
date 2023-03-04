@@ -5,9 +5,17 @@ program backend;
 uses
   Horse,
   System.SysUtils,
+<<<<<<< HEAD
   UDAO.Base in 'model\dao\UDAO.Base.pas',
   UDAO.Intf in 'model\dao\UDAO.Intf.pas',
   UUtil.Banco in 'model\utils\UUtil.Banco.pas';
+=======
+  UDAO.Pecas in 'model\dao\UDAO.Pecas.pas',
+  UEntity.Servicos in 'model\entities\UEntity.Servicos.pas',
+  UEntity.Usuarios in 'model\entities\UEntity.Usuarios.pas',
+  UEntity.Logins in 'model\entities\UEntity.Logins.pas',
+  UEntity.Carros in 'model\entities\UEntity.Carros.pas';
+>>>>>>> bdf46c299314077b9c8c7598fcb936da22f7af01
 
 begin
 
