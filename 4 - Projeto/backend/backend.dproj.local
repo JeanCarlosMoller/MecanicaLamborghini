@@ -4,5 +4,8 @@
     <Transaction>2023/03/03 21:26:07.000.959,C:\Users\mysql\Documents\MecanicaLamborghini\4 - Projeto\backend\backend.dproj=C:\Users\mysql\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
     <Transaction>2023/03/03 21:26:26.000.322,=C:\Users\mysql\Documents\MecanicaLamborghini\4 - Projeto\backend\Unit1.pas</Transaction>
     <Transaction>2023/03/03 21:27:09.000.443,C:\Users\mysql\Documents\MecanicaLamborghini\4 - Projeto\backend\model\dao\UDAO.Pecas.pas=C:\Users\mysql\Documents\MecanicaLamborghini\4 - Projeto\backend\Unit1.pas</Transaction>
+    <Transaction>2023/03/04 07:27:29.706,=C:\Users\Max\Desktop\Códigos\Delphi\MecanicaLamborghini\4 - Projeto\backend\model\dao\UDAO.Base.pas</Transaction>
+    <Transaction>2023/03/04 07:27:29.732,=C:\Users\Max\Desktop\Códigos\Delphi\MecanicaLamborghini\4 - Projeto\backend\model\dao\UDAO.Intf.pas</Transaction>
+    <Transaction>2023/03/04 07:27:41.446,=C:\Users\Max\Desktop\Códigos\Delphi\MecanicaLamborghini\4 - Projeto\backend\model\utils\UUtil.Banco.pas</Transaction>
   </Transactions>
 </BorlandProject>
