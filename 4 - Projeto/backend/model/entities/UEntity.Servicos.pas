@@ -9,19 +9,19 @@ type
   TServico = class
   private
     FId: Integer;
-    FDescricao: String;
+    FNome: String;
     FValorUnAtual: Double;
     FUnMedida: Double;
     FJSON: TJSONObject;
 
     function GetId: Integer;
-    function GetDescricao: String;
+    function GetNome: String;
     function GetValorUnAtual: Double;
     function GetUnMedida: Double;
     function GetJSON: TJSONObject;
 
     procedure SetId(const Value: Integer);
-    procedure SetDescricao(const Value: String);
+    procedure SetNome(const Value: String);
     procedure SetValorUnAtual(const Value: Double);
     procedure SetUnMedida(const Value: Double);
 
@@ -32,7 +32,7 @@ type
     destructor Destroy; override;
 
     property Id: Integer read GetId write SetId;
-    property Descricao: String read GetDescricao write SetDescricao;
+    property Nome: String read GetNome write SetNome;
     property ValorUnAtual: Double read GetValorUnAtual write SetValorUnAtual;
     property UnMedida: Double read GetUnMedida write SetUnMedida;
     property JSON: TJSONObject read GetJSON;
@@ -62,9 +62,9 @@ begin
   inherited;
 end;
 
-function TServico.GetDescricao: String;
+function TServico.GetNome: String;
 begin
-  Result := FDescricao;
+  Result := FNome;
 end;
 
 function TServico.GetId: Integer;
@@ -74,9 +74,9 @@ end;
 
 function TServico.GetJSON: TJSONObject;
 begin
-  FJSON.AddPair('descricao', FDescricao);
+  FJSON.AddPair('nome', FNome);
   FJSON.AddPair('valorUnAtual', FValorUnAtual.ToString);
-  FJSON.AddPair('descricao', FUnMedida.ToString);
+  FJSON.AddPair('unMedida', FUnMedida.ToString);
   Result := FJSON;
 end;
 
@@ -90,9 +90,9 @@ begin
   Result := FValorUnAtual;
 end;
 
-procedure TServico.SetDescricao(const Value: String);
+procedure TServico.SetNome(const Value: String);
 begin
-  FDescricao := Value;
+  FNome := Value;
 end;
 
 procedure TServico.SetId(const Value: Integer);
