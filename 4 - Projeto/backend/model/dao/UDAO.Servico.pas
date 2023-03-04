@@ -1,5 +1,7 @@
 unit UDAO.Servico;
 
+interface
+
 uses
   UDAO.Base;
 
@@ -17,3 +19,5 @@ constructor TDAOServico.Create;
 begin
   FTabela := 'servico';
 end;
+
+end.

@@ -1,4 +1,4 @@
-unit UEntity.Servicos;
+unit UEntity.Pecas;
 
 interface
 
@@ -6,7 +6,7 @@ uses
   System.JSON;
 
 type
-  TServico = class
+  TPeca = class
   private
     FId: Integer;
     FNome: String;
@@ -30,16 +30,17 @@ type
     constructor Create(const aId: Integer); overload;
 
     constructor Create(aId: Integer; aNome, aUnMedida: String;
-                        aValorUnAtual: Double); overload;
+      aValorUnAtual: Double); overload;
 
     destructor Destroy; override;
 
     property Id: Integer read GetId write SetId;
     property Nome: String read GetNome write SetNome;
-    property ValorUnAtual: Double read GetValorUnAtual write SetValorUnAtual;
+    property ValorUnatual: Double read GetValorUnatual write SetValorUnatual;
     property UnMedida: String read GetUnMedida write SetUnMedida;
 
     property JSON: TJSONObject read GetJSON;
+
   end;
 
 implementation
@@ -47,78 +48,81 @@ implementation
 uses
   System.SysUtils;
 
-{ TServico }
+{ TPecas }
 
-constructor TServico.Create;
+constructor TPeca.Create;
 begin
   FJSON := TJSONObject.Create;
 end;
 
-constructor TServico.Create(const aId: Integer);
+constructor TPeca.Create(const aId: Integer);
 begin
   FId := aId;
   Self.Create;
 end;
 
-constructor TServico.Create(aId: Integer; aNome, aUnMedida: String; aValorUnAtual: Double);
+constructor TPeca.Create(aId: Integer; aNome, aUnMedida: String; aValorUnAtual: Double);
 begin
   FId           := aId;
   FNome         := aNome;
-  FUnMedida     := aUnMedida;
+  FunMedida     := aUnMedida;
   FValorUnAtual := aValorUnAtual;
+
   Self.Create;
 end;
 
-destructor TServico.Destroy;
+destructor TPeca.Destroy;
 begin
   FreeAndNil(FJSON);
   inherited;
 end;
 
-function TServico.GetNome: String;
-begin
-  Result := FNome;
-end;
-
-function TServico.GetId: Integer;
+function TPeca.GetId: Integer;
 begin
   Result := FId;
 end;
 
-function TServico.GetJSON: TJSONObject;
+function TPeca.GetJSON: TJSONObject;
 begin
-  FJSON.AddPair('nome', FNome);
-  FJSON.AddPair('valorUnAtual', FValorUnAtual.ToString);
-  FJSON.AddPair('unMedida', FUnMedida);
+  FJSON.AddPair('id',         FId.ToString);
+  FJSON.AddPair('nome',       FNome);
+  FJSON.AddPair('unMedida',   FUnMedida);
+  FJSON.AddPair('valorAtual', FValorUnAtual.ToString);
+
   Result := FJSON;
 end;
 
-function TServico.GetUnMedida: String;
+function TPeca.GetNome: String;
+begin
+  Result := FNome;
+end;
+
+function TPeca.GetUnMedida: String;
 begin
   Result := FUnMedida;
 end;
 
-function TServico.GetValorUnAtual: Double;
+function TPeca.GetValorUnAtual: Double;
 begin
   Result := FValorUnAtual;
 end;
 
-procedure TServico.SetNome(const Value: String);
-begin
-  FNome := Value;
-end;
-
-procedure TServico.SetId(const Value: Integer);
+procedure TPeca.SetId(const Value: Integer);
 begin
   FId := Value;
 end;
 
-procedure TServico.SetUnMedida(const Value: String);
+procedure TPeca.SetNome(const Value: String);
+begin
+  FNome := Value;
+end;
+
+procedure TPeca.SetUnMedida(const Value: String);
 begin
   FUnMedida := Value;
 end;
 
-procedure TServico.SetValorUnAtual(const Value: Double);
+procedure TPeca.SetValorUnAtual(const Value: Double);
 begin
   FValorUnAtual := Value;
 end;
