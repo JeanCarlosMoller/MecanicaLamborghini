@@ -77,7 +77,6 @@ end;
 constructor TCarro.Create(const aUsuario: TUsuario);
 begin
   FUsuario := aUsuario;
-
   Self.Create;
 end;
 
@@ -91,6 +90,7 @@ begin
   FPlaca   := aPlaca;
   FMarca   := aMarca;
   FUsuario := aUsuario;
+  Self.Create;
 end;
 
 destructor TCarro.Destroy;
@@ -124,6 +124,7 @@ begin
   FJSON.AddPair('ano',     FAno.ToString);
   FJSON.AddPair('marca',   FMarca);
   FJSON.AddPair('idusuario', FUsuario.id.ToString);
+  Result := FJSON;
 end;
 
 function TCarro.GetMarca: String;

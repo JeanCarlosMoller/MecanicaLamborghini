@@ -13,7 +13,9 @@ uses
   UDAO.Base in 'model\dao\UDAO.Base.pas',
   UDAO.Intf in 'model\dao\UDAO.Intf.pas',
   UUtil.Banco in 'model\utils\UUtil.Banco.pas',
-  UDAO.Usuario in 'model\dao\UDAO.Usuario.pas';
+  UDAO.Usuario in 'model\dao\UDAO.Usuario.pas',
+  UEntity.Orcamentos in 'model\entities\UEntity.Orcamentos.pas',
+  UEntity.ItemServicos in 'model\entities\UEntity.ItemServicos.pas';
 
 begin
 
