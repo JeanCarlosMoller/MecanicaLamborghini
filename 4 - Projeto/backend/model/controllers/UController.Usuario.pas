@@ -4,8 +4,7 @@ interface
 
 uses
   Horse,
-  UController.Base,
-  UEntity.Usuarios;
+  UController.Base;
 
 type
   TControllerUsuario = class(TControllerBase)
