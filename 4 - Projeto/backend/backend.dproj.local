@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
+<<<<<<< HEAD
     <Transaction>2023/03/03 21:26:07.000.959,C:\Users\mysql\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\mysql\Documents\MecanicaLamborghini\4 - Projeto\backend\backend.dproj</Transaction>
     <Transaction>2023/03/03 21:26:26.000.322,=C:\Users\mysql\Documents\MecanicaLamborghini\4 - Projeto\backend\Unit1.pas</Transaction>
     <Transaction>2023/03/03 21:27:09.000.443,C:\Users\mysql\Documents\MecanicaLamborghini\4 - Projeto\backend\Unit1.pas=C:\Users\mysql\Documents\MecanicaLamborghini\4 - Projeto\backend\model\dao\UDAO.Pecas.pas</Transaction>
@@ -12,5 +13,10 @@
     <Transaction>2023/03/04 01:41:27.134,C:\GIT\MecanicaLamborghini\4 - Projeto\backend\model\entities\UEntity.Logins.pas=C:\GIT\MecanicaLamborghini\4 - Projeto\backend\Unit1.pas</Transaction>
     <Transaction>2023/03/04 01:49:00.541,=C:\GIT\MecanicaLamborghini\4 - Projeto\backend\Unit1.pas</Transaction>
     <Transaction>2023/03/04 01:49:49.355,C:\GIT\MecanicaLamborghini\4 - Projeto\backend\model\entities\UEntity.Carros.pas=C:\GIT\MecanicaLamborghini\4 - Projeto\backend\Unit1.pas</Transaction>
+=======
+    <Transaction>2023/03/03 21:26:07.000.959,C:\Users\mysql\Documents\MecanicaLamborghini\4 - Projeto\backend\backend.dproj=C:\Users\mysql\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/03/03 21:26:26.000.322,=C:\Users\mysql\Documents\MecanicaLamborghini\4 - Projeto\backend\Unit1.pas</Transaction>
+    <Transaction>2023/03/03 21:27:09.000.443,C:\Users\mysql\Documents\MecanicaLamborghini\4 - Projeto\backend\model\dao\UDAO.Pecas.pas=C:\Users\mysql\Documents\MecanicaLamborghini\4 - Projeto\backend\Unit1.pas</Transaction>
+>>>>>>> main
   </Transactions>
 </BorlandProject>
