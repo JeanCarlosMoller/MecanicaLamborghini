@@ -12,7 +12,8 @@ uses
   UEntity.Usuarios in 'model\entities\UEntity.Usuarios.pas',
   UDAO.Base in 'model\dao\UDAO.Base.pas',
   UDAO.Intf in 'model\dao\UDAO.Intf.pas',
-  UUtil.Banco in 'model\utils\UUtil.Banco.pas';
+  UUtil.Banco in 'model\utils\UUtil.Banco.pas',
+  UDAO.Usuario in 'model\dao\UDAO.Usuario.pas';
 
 begin
 
