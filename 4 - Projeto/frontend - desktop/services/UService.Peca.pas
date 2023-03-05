@@ -1,25 +1,25 @@
-unit UService.Servico;
+unit UService.Peca;
 
 interface
 
 Uses
   UService.Base,
   Generics.Collections,
-  UEntity.Servicos;
+  UEntity.Pecas;
 
 type
-  TServiceServico = class(TServiceBase)
+  TServicePeca = class(TServiceBase)
   private
-    FServico: TServico;
-    FServicos: TObjectList<TServico>;
+    FPeca: TPeca;
+    FPecas: TObjectList<TPeca>;
 
-    function GetServicos: TObjectList<TServico>;
+    function GetPecas: TObjectList<TPeca>;
 
-    procedure PreencherServicos(const aJsonServicos: String);
+    procedure PreencherPecas(const aJsonPecas: String);
 
   public
     constructor Create; overload;
-    constructor Create(aServico: TServico); overload;
+    constructor Create(aPeca: TPeca); overload;
     destructor Destroy; override;
 
     procedure Registrar; override;
@@ -28,7 +28,7 @@ type
 
     function ObterRegistro(const aId: Integer): TObject; override;
 
-    property Servicos: TObjectList<TServico> read GetServicos;
+    property Pecas: TObjectList<TPeca> read GetPecas;
   end;
 
 implementation
@@ -42,35 +42,35 @@ uses
   FireDAC.Comp.Client,
   UUtils.Functions;
 
-{ TServiceServico }
+{ TServicePeca }
 
-constructor TServiceServico.Create;
+constructor TServicePeca.Create;
 begin
   Inherited Create;
 
-  FServicos := TObjectList<TServico>.Create;
+  FPecas := TObjectList<TPeca>.Create;
 end;
 
-constructor TServiceServico.Create(aServico: TServico);
+constructor TServicePeca.Create(aPeca: TPeca);
 begin
-  FServico := aServico;
+  FPeca := aPeca;
   Self.Create;
 end;
 
-destructor TServiceServico.Destroy;
+destructor TServicePeca.Destroy;
 begin
-  FreeAndNil(FServico);
-  FreeAndNil(FServicos);
+  FreeAndNil(FPeca);
+  FreeAndNil(FPecas);
   inherited;
 end;
 
-procedure TServiceServico.Excluir;
+procedure TServicePeca.Excluir;
 begin
-  if (not Assigned(FServico)) or (FServico.Id = 0) then
+  if (not Assigned(FPeca)) or (FPeca.Id = 0) then
     raise Exception.Create('Nenhum Servico foi escolhido para exclusão.');
 
   try
-    FRESTClient.BaseURL := Format(URL_BASE_SERVICO + '/%d', [FServico.Id]);
+    FRESTClient.BaseURL := Format(URL_BASE_PECA + '/%d', [FPeca.Id]);
     FRESTRequest.Method := rmDelete;
     FRESTRequest.Execute;
 
@@ -86,14 +86,15 @@ begin
     on e: Exception do
       raise Exception.Create(e.Message);
   end;
+
 end;
 
-function TServiceServico.GetServicos: TObjectList<TServico>;
+function TServicePeca.GetPecas: TObjectList<TPeca>;
 begin
-  Result := FServicos;
+  Result := FPecas;
 end;
 
-procedure TServiceServico.Listar;
+procedure TServicePeca.Listar;
 begin
   try
     FRESTClient.BaseURL := URL_BASE_SERVICO;
@@ -102,37 +103,36 @@ begin
 
     case FRESTResponse.StatusCode of
       API_SUCESSO:
-        Self.PreencherServicos(FRESTResponse.Content);
+        Self.PreencherPecas(FRESTResponse.Content);
       API_NAO_AUTORIZADO:
         raise Exception.Create('Usuário não autorizado.');
     else
       raise Exception.Create
-        ('Erro ao carregar a lista de Serviços. Código do Erro: ' +
+        ('Erro ao carregar a lista de Peças. Código do Erro: ' +
         FRESTResponse.StatusCode.ToString);
     end;
   except
     on e: Exception do
       raise Exception.Create(e.Message);
   end;
-
 end;
 
-function TServiceServico.ObterRegistro(const aId: Integer): TObject;
+function TServicePeca.ObterRegistro(const aId: Integer): TObject;
 begin
   Result := nil;
-  //Método sem implementação no momento
+  // Método sem implementação no momento
 end;
 
-procedure TServiceServico.PreencherServicos(const aJsonServicos: String);
+procedure TServicePeca.PreencherPecas(const aJsonPecas: String);
 begin
- //
+  //
 end;
 
-procedure TServiceServico.Registrar;
+procedure TServicePeca.Registrar;
 begin
-   try
-    FRESTClient.BaseURL := URL_BASE_SERVICO;
-    FRESTRequest.Params.AddBody(FServico.JSON);
+  try
+    FRESTClient.BaseURL := URL_BASE_PECA;
+    FRESTRequest.Params.AddBody(FPeca.JSON);
     FRESTRequest.Method := rmPost;
     FRESTRequest.Execute;
 
@@ -141,11 +141,11 @@ begin
         Exit;
       API_NAO_AUTORIZADO:
         raise Exception.Create('Usuário não autorizado.');
-      else
-        raise Exception.Create('Erro não catalogado.');
+    else
+      raise Exception.Create('Erro não catalogado.');
     end;
   except
-    on e: exception do
+    on e: Exception do
       raise Exception.Create(e.Message);
   end;
 end;
