@@ -25,8 +25,8 @@ CREATE TABLE Orcamento
  ValorTotal FLOAT,  
  Descricao VARCHAR(1000),  
  Status VARCHAR(50),  
- id_Carro INT,  
- id_Usuario INT  
+ idCarro INT,  
+ idUsuario INT  
 ); 
 
 CREATE TABLE Carro 
@@ -37,7 +37,7 @@ CREATE TABLE Carro
  Placa VARCHAR(7),  
  Ano INT(4),  
  Marca VARCHAR(50),  
- id_Usuario INT  
+ idUsuario INT  
 ); 
 
 CREATE TABLE Servico 
@@ -54,8 +54,8 @@ CREATE TABLE ItemServico
  Qnt INT(2),  
  ValorUn FLOAT,  
  ValorTotal FLOAT,  
- id_Servico INT,  
- id_Orcamento INT  
+ idServico INT,  
+ idOrcamento INT  
 ); 
 
 CREATE TABLE ItemPeca 
@@ -64,9 +64,9 @@ CREATE TABLE ItemPeca
  Qnt INT(3),  
  ValorUn FLOAT,  
  ValorTotal FLOAT,  
- id_Orcamento INT,  
- id_Peca INT  
-); 
+ idOrcamento INT,  
+ idPeca INT  
+);
 
 CREATE TABLE Peca 
 ( 
@@ -76,10 +76,10 @@ CREATE TABLE Peca
  UnMedida VARCHAR(20)  
 );
 
-ALTER TABLE Orcamento ADD FOREIGN KEY(id_Carro) REFERENCES Carro (id);
-ALTER TABLE Orcamento ADD FOREIGN KEY(id_Usuario) REFERENCES Usuario (id);
-ALTER TABLE Carro ADD FOREIGN KEY(id_Usuario) REFERENCES Usuario (id);
-ALTER TABLE ItemServico ADD FOREIGN KEY(id_Servico) REFERENCES Servico (id);
-ALTER TABLE ItemServico ADD FOREIGN KEY(id_Orcamento) REFERENCES Orcamento (id);
-ALTER TABLE ItemPeca ADD FOREIGN KEY(id_Orcamento) REFERENCES Orcamento (id);
-ALTER TABLE ItemPeca ADD FOREIGN KEY(id_Peca) REFERENCES Peca (id);
+ALTER TABLE Orcamento ADD FOREIGN KEY(idCarro) REFERENCES Carro (id);
+ALTER TABLE Orcamento ADD FOREIGN KEY(idUsuario) REFERENCES Usuario (id);
+ALTER TABLE Carro ADD FOREIGN KEY(idUsuario) REFERENCES Usuario (id);
+ALTER TABLE ItemServico ADD FOREIGN KEY(idServico) REFERENCES Servico (id);
+ALTER TABLE ItemServico ADD FOREIGN KEY(idOrcamento) REFERENCES Orcamento (id);
+ALTER TABLE ItemPeca ADD FOREIGN KEY(idOrcamento) REFERENCES Orcamento (id);
+ALTER TABLE ItemPeca ADD FOREIGN KEY(idPeca) REFERENCES Peca (id);
