@@ -34,7 +34,10 @@ uses
   UController.Peca in '..\backend\model\controllers\UController.Peca.pas',
   UController.Servico in '..\backend\model\controllers\UController.Servico.pas',
   UController.Usuario in '..\backend\model\controllers\UController.Usuario.pas',
-  UService.Usuario.Authenticated in 'services\UService.Usuario.Authenticated.pas';
+  UService.Usuario.Authenticated in 'services\UService.Usuario.Authenticated.pas',
+  UUtils.Constants in 'utils\UUtils.Constants.pas',
+  UService.Servico in 'services\UService.Servico.pas',
+  UUtils.Functions in 'utils\UUtils.Functions.pas';
 
 {$R *.res}
 

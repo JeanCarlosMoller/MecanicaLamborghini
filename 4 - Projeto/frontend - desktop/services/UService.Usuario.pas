@@ -3,70 +3,111 @@ unit UService.Usuario;
 interface
 
 uses
-  UService.Base, UEntity.Usuarios;
+  UService.Base,
+  UUtils.Constants,
+  UEntity.Usuarios;
 
 type
-  TServiceUser = class(TServiceBase)
-    private
-      FUsuario: TUsuario;
-    public
-      constructor Create; overload;
-      constructor Create(aUsuario: TUsuario); overload;
-      destructor  Destroy; override;
+  TServiceUsuario = class(TServiceBase)
+  private
+    FUsuario: TUsuario;
+  public
+    constructor Create; overload;
+    constructor Create(aUsuario: TUsuario); overload;
+    destructor Destroy; override;
 
-      procedure Registrar; override;
-      procedure Listar; override;
-      procedure Excluir; override;
+    procedure Registrar; override;
+    procedure Listar; override;
+    procedure Excluir; override;
 
-      function ObterRegistro(const aId: Integer): TObject; override;
+    function ObterRegistro(const aId: Integer): TObject; override;
   end;
 
 implementation
 
 uses
   REST.Types,
-  System.JSON, System.SysUtils,
-  System.Classes, FireDAC.comp.Client, DataSet.Serialize;
+  System.JSON,
+  System.SysUtils,
+  System.Classes,
+  DataSet.Serialize,
+  FireDAC.comp.Client;
 
-{ TServiceUser }
+{ TServiceUsuario }
 
-constructor TServiceUser.Create;
+constructor TServiceUsuario.Create;
 begin
-
+  Inherited Create;
 end;
 
-constructor TServiceUser.Create(aUsuario: TUsuario);
+constructor TServiceUsuario.Create(aUsuario: TUsuario);
 begin
-
+  FUsuario := aUsuario;
+  Self.Create;
 end;
 
-destructor TServiceUser.Destroy;
+destructor TServiceUsuario.Destroy;
 begin
-
+  FreeAndNil(FUsuario);
   inherited;
 end;
 
-procedure TServiceUser.Excluir;
+procedure TServiceUsuario.Excluir;
 begin
-  inherited;
+  //
+end;
+
+procedure TServiceUsuario.Listar;
+begin
+  //
+end;
+
+function TServiceUsuario.ObterRegistro(const aId: Integer): TObject;
+var
+  xMemTable: TFDMemTable;
+begin
+  Result := nil;
+
+  xMemTable := TFDMemTable.Create(nil);
+
+  try
+    FRESTClient.BaseURL := URL_BASE_USUARIO + '/' + aId.ToString;
+    FRESTRequest.Method := rmGet;
+    FRESTRequest.Execute;
+
+    if FRESTResponse.StatusCode = API_SUCESSO then
+    begin
+      xMemTable.LoadFromJSON(FRESTResponse.Content);
+
+      if xMemTable.FindFirst then
+        Result := TUsuario.Create(xMemTable.FieldByName('id').AsInteger);
+    end;
+  finally
+    FreeAndNil(xMemTable);
+  end;
 
 end;
 
-procedure TServiceUser.Listar;
+procedure TServiceUsuario.Registrar;
 begin
-  inherited;
+  try
+    FRESTClient.BaseURL := URL_BASE_USUARIO;
+    FRESTRequest.Method := rmPost;
+    FRESTRequest.Params.AddBody(FUsuario.JSON);
+    FRESTRequest.Execute;
 
-end;
-
-function TServiceUser.ObterRegistro(const aId: Integer): TObject;
-begin
-
-end;
-
-procedure TServiceUser.Registrar;
-begin
-  inherited;
-
+    case FRESTResponse.StatusCode of
+      API_CRIADO:
+        Exit;
+      API_NAO_AUTORIZADO:
+        raise Exception.Create('Usuário não autorizado.');
+    else
+      raise Exception.Create('Erro não catalogado.');
+    end;
+  except
+    on e: Exception do
+      raise Exception.Create(e.Message);
+  end;
 end;
 
 end.

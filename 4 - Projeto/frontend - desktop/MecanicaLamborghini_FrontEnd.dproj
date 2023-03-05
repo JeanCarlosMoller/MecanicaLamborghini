@@ -224,6 +224,9 @@
         <DCCReference Include="..\backend\model\controllers\UController.Servico.pas"/>
         <DCCReference Include="..\backend\model\controllers\UController.Usuario.pas"/>
         <DCCReference Include="services\UService.Usuario.Authenticated.pas"/>
+        <DCCReference Include="utils\UUtils.Constants.pas"/>
+        <DCCReference Include="services\UService.Servico.pas"/>
+        <DCCReference Include="utils\UUtils.Functions.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
