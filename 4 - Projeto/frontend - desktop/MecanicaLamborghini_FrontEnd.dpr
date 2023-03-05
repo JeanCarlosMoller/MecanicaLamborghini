@@ -3,7 +3,6 @@ program MecanicaLamborghini_FrontEnd;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  UfraHome in 'views\UfraHome.pas' {Form1},
   UService.Base in 'services\UService.Base.pas',
   UService.Intf in 'services\UService.Intf.pas',
   UService.Usuario in 'services\UService.Usuario.pas',
@@ -43,12 +42,15 @@ uses
   UService.Peca in 'services\UService.Peca.pas',
   UService.ItemPeca in 'services\UService.ItemPeca.pas',
   UService.Orcamento in 'services\UService.Orcamento.pas',
-  UService.ItemServico in 'services\UService.ItemServico.pas';
+  UService.ItemServico in 'services\UService.ItemServico.pas',
+  UfrmLogin in 'views\UfrmLogin.pas' {FrmLogin},
+  UfrmOrcamentosMecanico in 'views\UfrmOrcamentosMecanico.pas' {frmOrcamentosMecanico};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TFrmLogin, FrmLogin);
+  Application.CreateForm(TfrmOrcamentosMecanico, frmOrcamentosMecanico);
   Application.Run;
 end.
