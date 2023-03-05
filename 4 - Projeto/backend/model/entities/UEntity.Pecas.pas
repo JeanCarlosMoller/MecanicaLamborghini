@@ -86,8 +86,8 @@ function TPeca.GetJSON: TJSONObject;
 begin
   FJSON.AddPair('id',         FId.ToString);
   FJSON.AddPair('nome',       FNome);
-  FJSON.AddPair('unMedida',   FUnMedida);
-  FJSON.AddPair('valorAtual', FValorUnAtual.ToString);
+  FJSON.AddPair('unmedida',   FUnMedida);
+  FJSON.AddPair('valoratual', FValorUnAtual.ToString);
 
   Result := FJSON;
 end;

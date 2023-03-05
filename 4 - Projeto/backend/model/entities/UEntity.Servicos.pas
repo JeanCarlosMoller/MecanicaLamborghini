@@ -88,8 +88,8 @@ end;
 function TServico.GetJSON: TJSONObject;
 begin
   FJSON.AddPair('nome', FNome);
-  FJSON.AddPair('valorUnAtual', FValorUnAtual.ToString);
-  FJSON.AddPair('unMedida', FUnMedida);
+  FJSON.AddPair('valoratual', FValorUnAtual.ToString);
+  FJSON.AddPair('unmedida', FUnMedida);
   Result := FJSON;
 end;
 

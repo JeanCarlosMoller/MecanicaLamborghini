@@ -120,9 +120,9 @@ end;
 function TOrcamento.GetJSON: TJSONObject;
 begin
   FJSON.AddPair('id',           FId.ToString);
-  FJSON.AddPair('totalPeca',    FTotalPeca.ToString);
-  FJSON.AddPair('totalServico', FTotalServico.ToString);
-  FJSON.AddPair('valorTotal',   FValorTotal.ToString);
+  FJSON.AddPair('totalpeca',    FTotalPeca.ToString);
+  FJSON.AddPair('totalservico', FTotalServico.ToString);
+  FJSON.AddPair('valortotal',   FValorTotal.ToString);
   FJSON.AddPair('descricao',    FDescricao);
   FJSON.AddPair('status',       FStatus);
   FJSON.AddPair('idusuario',    FUsuario.id.ToString);
