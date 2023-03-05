@@ -47,9 +47,9 @@ begin
       TEncoding.ASCII.GetBytes(
         xJSONArray[I].ToJSON), 0) as TJSONObject;
 
-    xIdUser := StrToInt(xJSONObject.GetValue('id_Usuario').Value);
+    xIdUser := StrToInt(xJSONObject.GetValue('idusuario').Value);
     xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));
-    xJSONObject.RemovePair('id_Usuario');
+    xJSONObject.RemovePair('idusuario');
 
     xJSONArrayAux.AddElement(xJSONObject);
   end;
@@ -68,9 +68,9 @@ begin
   if xJSONObject.Count = 0 then
     Exit(xJSONObject);
 
-  xIdUser := StrToInt(xJSONObject.GetValue('id_Usuario').Value);
+  xIdUser := StrToInt(xJSONObject.GetValue('idusuario').Value);
   xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));
-  xJSONObject.RemovePair('id_Usuario');
+  xJSONObject.RemovePair('idusuario');
 
   Result := xJSONObject;
 end;
