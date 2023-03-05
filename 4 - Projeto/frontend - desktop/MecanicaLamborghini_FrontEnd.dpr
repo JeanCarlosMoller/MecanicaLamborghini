@@ -44,13 +44,13 @@ uses
   UService.Orcamento in 'services\UService.Orcamento.pas',
   UService.ItemServico in 'services\UService.ItemServico.pas',
   UfrmLogin in 'views\UfrmLogin.pas' {FrmLogin},
-  UfrmOrcamentosMecanico in 'views\UfrmOrcamentosMecanico.pas' {frmOrcamentosMecanico};
+  UfrmOrcamentosMecanico in 'views\UfrmOrcamentosMecanico.pas' {frmOrcamentosMecanico},
+  UfrmNovoOrcamento in 'views\UfrmNovoOrcamento.pas' {frmNovoOrcamento};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TFrmLogin, FrmLogin);
-  Application.CreateForm(TfrmOrcamentosMecanico, frmOrcamentosMecanico);
   Application.Run;
 end.
