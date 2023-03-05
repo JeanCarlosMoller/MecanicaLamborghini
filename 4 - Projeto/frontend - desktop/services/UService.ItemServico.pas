@@ -90,7 +90,6 @@ begin
     on e: Exception do
       raise Exception.Create(e.Message);
   end;
-
 end;
 
 function TServiceItemServico.GetItemServicos: TObjectList<TItemServico>;
