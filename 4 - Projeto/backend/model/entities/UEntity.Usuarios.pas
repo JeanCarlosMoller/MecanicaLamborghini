@@ -131,7 +131,7 @@ end;
 function TUsuario.GetJSON: TJSONObject;
 begin
   FJSON.AddPair('id',          FId.ToString);
-  FJSON.AddPair('tipoUsuario', FTipoUsuario.ToString);
+  FJSON.AddPair('tipousuario', FTipoUsuario.ToString);
   FJSON.AddPair('nome',        FNome);
   FJSON.AddPair('cpf',         FCPF);
   FJSON.AddPair('celular',     FCelular);

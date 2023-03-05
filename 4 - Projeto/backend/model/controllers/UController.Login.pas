@@ -50,7 +50,7 @@ begin
       Exit;
     end;
 
-    if not xJSONLogin.TryGetValue<String>('password', xPassword) then
+    if not xJSONLogin.TryGetValue<String>('senha', xPassword) then
     begin
       Res.Status(THTTPStatus.BadRequest);
       Exit;

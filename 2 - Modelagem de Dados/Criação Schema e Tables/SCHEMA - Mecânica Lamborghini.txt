@@ -1,3 +1,5 @@
+DROP SCHEMA IF EXISTS `mecanica_lamborghini`; 
+
 CREATE SCHEMA `mecanica_lamborghini`;
 
 USE `mecanica_lamborghini`;
@@ -5,24 +7,24 @@ USE `mecanica_lamborghini`;
 CREATE TABLE Usuario 
 ( 
  id INT PRIMARY KEY AUTO_INCREMENT,   
- TipoUser ENUM('User', 'Mec') NOT NULL,  
- Nome VARCHAR(255) NOT NULL,  
+ TipoUser ENUM('User', 'Mec'),  
+ Nome VARCHAR(255),  
  CPF VARCHAR(11) NOT NULL,  
- Celular VARCHAR(11) NOT NULL,  
- email VARCHAR(255) NOT NULL,  
- Login VARCHAR(255) NOT NULL,  
- Senha VARCHAR(50) NOT NULL, 
+ Celular VARCHAR(11),  
+ email VARCHAR(255),  
+ Login VARCHAR(255),  
+ Senha VARCHAR(50), 
  unique (login)
 ); 
 
 CREATE TABLE Orcamento 
 ( 
  id INT PRIMARY KEY AUTO_INCREMENT,    
- TotalPeca FLOAT NOT NULL,  
- TotalServico FLOAT NOT NULL,  
- ValorTotal FLOAT NOT NULL,  
- Descricao VARCHAR(1000) NOT NULL,  
- Status VARCHAR(50) NOT NULL,  
+ TotalPeca FLOAT,  
+ TotalServico FLOAT,  
+ ValorTotal FLOAT,  
+ Descricao VARCHAR(1000),  
+ Status VARCHAR(50),  
  id_Carro INT,  
  id_Usuario INT  
 ); 
@@ -30,28 +32,28 @@ CREATE TABLE Orcamento
 CREATE TABLE Carro 
 ( 
  id INT PRIMARY KEY AUTO_INCREMENT,   
- Modelo VARCHAR(50) NOT NULL,  
- Cor VARCHAR(50) NOT NULL,  
- Placa VARCHAR(7) NOT NULL,  
- Ano INT(4) NOT NULL,  
- Marca VARCHAR(50) NOT NULL,  
+ Modelo VARCHAR(50),  
+ Cor VARCHAR(50),  
+ Placa VARCHAR(7),  
+ Ano INT(4),  
+ Marca VARCHAR(50),  
  id_Usuario INT  
 ); 
 
 CREATE TABLE Servico 
 ( 
  id INT PRIMARY KEY AUTO_INCREMENT,  
- Nome VARCHAR(50) NOT NULL,  
- ValorUnAtual FLOAT NOT NULL,  
- UnMedida VARCHAR(20) NOT NULL 
+ Nome VARCHAR(50),  
+ ValorAtual FLOAT,  
+ UnMedida VARCHAR(20) 
 ); 
 
 CREATE TABLE ItemServico 
 ( 
  id INT PRIMARY KEY AUTO_INCREMENT,    
- Qnt INT(2) NOT NULL,  
- ValorUn FLOAT NOT NULL,  
- ValorTotal FLOAT NOT NULL,  
+ Qnt INT(2),  
+ ValorUn FLOAT,  
+ ValorTotal FLOAT,  
  id_Servico INT,  
  id_Orcamento INT  
 ); 
@@ -59,9 +61,9 @@ CREATE TABLE ItemServico
 CREATE TABLE ItemPeca 
 ( 
  id INT PRIMARY KEY AUTO_INCREMENT,   
- Qnt INT(3) NOT NULL,  
- ValorUn FLOAT NOT NULL,  
- ValorTotal FLOAT NOT NULL,  
+ Qnt INT(3),  
+ ValorUn FLOAT,  
+ ValorTotal FLOAT,  
  id_Orcamento INT,  
  id_Peca INT  
 ); 
@@ -69,9 +71,9 @@ CREATE TABLE ItemPeca
 CREATE TABLE Peca 
 ( 
  id INT PRIMARY KEY AUTO_INCREMENT,    
- Nome VARCHAR(50) NOT NULL,  
- ValorUnAtual FLOAT NOT NULL,  
- UnMedida VARCHAR(20) NOT NULL  
+ Nome VARCHAR(50),  
+ ValorAtual FLOAT,  
+ UnMedida VARCHAR(20)  
 );
 
 ALTER TABLE Orcamento ADD FOREIGN KEY(id_Carro) REFERENCES Carro (id);

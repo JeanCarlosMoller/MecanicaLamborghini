@@ -101,10 +101,10 @@ function TItemPecas.GetJSON: TJSONObject;
 begin
   FJSON.AddPair('id',          FId.ToString);
   FJSON.AddPair('qnt',         FQnt.ToString);
-  FJSON.AddPair('valorUn',     FValorUn.ToString);
-  FJSON.AddPair('valorTotal',  FValorTotal.ToString);
-  FJSON.AddPair('idOrcamento', FOrcamento.id.ToString);
-  FJSON.AddPair('idPeca',   FPeca.id.ToString);
+  FJSON.AddPair('valorun',     FValorUn.ToString);
+  FJSON.AddPair('valortotal',  FValorTotal.ToString);
+  FJSON.AddPair('idorcamento', FOrcamento.id.ToString);
+  FJSON.AddPair('idpeca',   FPeca.id.ToString);
 
   Result := FJSON;
 end;
