@@ -196,6 +196,7 @@ begin
   FSenha := value;
 end;
 
+
 procedure TUsuario.SetTipoUsuario(const Value: Boolean);
 begin
   FTipoUsuario := value;

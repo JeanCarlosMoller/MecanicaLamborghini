@@ -37,7 +37,13 @@ uses
   UService.Usuario.Authenticated in 'services\UService.Usuario.Authenticated.pas',
   UUtils.Constants in 'utils\UUtils.Constants.pas',
   UService.Servico in 'services\UService.Servico.pas',
-  UUtils.Functions in 'utils\UUtils.Functions.pas';
+  UUtils.Functions in 'utils\UUtils.Functions.pas',
+  UService.Login in 'services\UService.Login.pas',
+  UService.Carro in 'services\UService.Carro.pas',
+  UService.Peca in 'services\UService.Peca.pas',
+  UService.ItemPeca in 'services\UService.ItemPeca.pas',
+  UService.Orcamento in 'services\UService.Orcamento.pas',
+  UService.ItemServico in 'services\UService.ItemServico.pas';
 
 {$R *.res}
 
