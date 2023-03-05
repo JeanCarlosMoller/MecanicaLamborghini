@@ -30,7 +30,7 @@ implementation
 uses
   System.SysUtils;
 
-{ TLoginAutenticado }
+{ TUsuarioAuthenticated }
 
 constructor TUsuarioAuthenticated.Create;
 begin
