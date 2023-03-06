@@ -234,16 +234,8 @@
             <Form>FrmLogin</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="views\UfrmOrcamentosMecanico.pas">
-            <Form>frmOrcamentosMecanico</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
         <DCCReference Include="views\UfrmNovoOrcamento.pas">
             <Form>frmNovoOrcamento</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
-        <DCCReference Include="views\UfrmOrcamentosCliente.pas">
-            <Form>frmOrcamentosCliente</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="views\UfrmOrcamentoCompletoCliente.pas">
@@ -255,6 +247,35 @@
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="utils\UUtils.Enums.pas"/>
+        <DCCReference Include="views\UfrmHomeUsuario.pas">
+            <Form>frmHomeUsuario</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="views\UfraEditarPerfilUsuario.pas">
+            <Form>fraEditarPerfilUsuario</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="views\UfraEditarPerfilMecanico.pas">
+            <Form>fraEditarPerfilMecanico</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="views\UfraOrcamentosCliente.pas">
+            <Form>fraOrcamentoCliente</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="views\UfraOrcamentosMecanico.pas">
+            <Form>fraOrcamentosMecanico</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="views\UfraCarrosCliente.pas">
+            <Form>fraCarrosCliente</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

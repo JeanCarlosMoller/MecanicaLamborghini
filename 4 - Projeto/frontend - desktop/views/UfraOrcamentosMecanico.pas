@@ -1,31 +1,31 @@
-unit UfrmOrcamentosMecanico;
+unit UfraOrcamentosMecanico;
 
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.ListView.Types,
-  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView;
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls, FMX.Objects,
+  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView,
+  FMX.Controls.Presentation, FMX.Layouts;
 
 type
-  TfrmOrcamentosMecanico = class(TForm)
+  TfraOrcamentosMecanico = class(TFrame)
     rectFundo: TRectangle;
-    rectNovoOrcamento: TRoundRect;
-    Label4: TLabel;
-    rectVisualizarOrcamento: TRoundRect;
-    Label1: TLabel;
+    logoLamborhini: TImage;
+    lytPrincipal: TLayout;
+    lytBotoes: TLayout;
     rectExcluirOrcamento: TRoundRect;
     Label2: TLabel;
-    logoLamborhini: TImage;
-    lytBotoes: TLayout;
+    rectVisualizarOrcamento: TRoundRect;
+    Label1: TLabel;
+    rectNovoOrcamento: TRoundRect;
+    Label4: TLabel;
     lstListaOrcamentos: TLayout;
-    lstOrcamentos: TListView;
     Label3: TLabel;
     Label5: TLabel;
     Label7: TLabel;
     Label8: TLabel;
-    lytPrincipal: TLayout;
+    lstOrcamentos: TListView;
     procedure rectNovoOrcamentoClick(Sender: TObject);
   private
     { Private declarations }
@@ -34,13 +34,13 @@ type
   end;
 
 var
-  frmOrcamentosMecanico: TfrmOrcamentosMecanico;
+ fraOrcamentosMecanico : TfraOrcamentosMecanico;
 
 implementation
 
 {$R *.fmx}
 
-procedure TfrmOrcamentosMecanico.rectNovoOrcamentoClick(Sender: TObject);
+procedure TfraOrcamentosMecanico.rectNovoOrcamentoClick(Sender: TObject);
 var
   xItem: TListViewItem;
 begin

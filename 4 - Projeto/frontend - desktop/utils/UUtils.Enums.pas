@@ -1,9 +1,13 @@
 unit UUtils.Enums;
 
 interface
+
 type
-  TEnumMenu = (mnuOrcamentos, mnuServico, mnuPecas,
+  TEnumMenuMecanico = (mnuOrcamentos, mnuServico, mnuPecas,
     mnuGerenciarUsuario, mnuSair);
+
+  TEnumMenuCliente = (mnuOrcamentosCliente, mnuSimularServico,
+    mnuMeusCarros, mnuSairCliente);
 
 implementation
 
