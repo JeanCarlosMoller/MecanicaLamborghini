@@ -47,12 +47,14 @@ uses
   UfrmOrcamentosMecanico in 'views\UfrmOrcamentosMecanico.pas' {frmOrcamentosMecanico},
   UfrmNovoOrcamento in 'views\UfrmNovoOrcamento.pas' {frmNovoOrcamento},
   UfrmOrcamentosCliente in 'views\UfrmOrcamentosCliente.pas' {frmOrcamentosCliente},
-  UfrmOrcamentoCompletoCliente in 'views\UfrmOrcamentoCompletoCliente.pas' {frmOrcamentoCompletoCliente};
+  UfrmOrcamentoCompletoCliente in 'views\UfrmOrcamentoCompletoCliente.pas' {frmOrcamentoCompletoCliente},
+  UfrmHomeMecanico in 'views\UfrmHomeMecanico.pas' {frmHomeMecanico},
+  UUtils.Enums in 'utils\UUtils.Enums.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TfrmNovoOrcamento, frmNovoOrcamento);
+  Application.CreateForm(TfrmHomeMecanico, frmHomeMecanico);
   Application.Run;
 end.
