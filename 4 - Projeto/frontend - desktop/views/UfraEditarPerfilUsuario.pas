@@ -23,7 +23,7 @@ type
     RoundRect2: TRoundRect;
     Edit1: TEdit;
     RoundRect3: TRoundRect;
-    Edit2: TEdit;
+    edtCPF: TEdit;
     RoundRect1: TRoundRect;
     Edit3: TEdit;
     RoundRect4: TRoundRect;
