@@ -53,7 +53,8 @@ uses
   UfraEditarPerfilMecanico in 'views\UfraEditarPerfilMecanico.pas' {fraEditarPerfilMecanico: TFrame},
   UfraOrcamentosCliente in 'views\UfraOrcamentosCliente.pas' {fraOrcamentoCliente: TFrame},
   UfraOrcamentosMecanico in 'views\UfraOrcamentosMecanico.pas' {fraOrcamentosMecanico: TFrame},
-  UfraCarrosCliente in 'views\UfraCarrosCliente.pas' {fraCarrosCliente: TFrame};
+  UfraCarrosCliente in 'views\UfraCarrosCliente.pas' {fraCarrosCliente: TFrame},
+  UfraCadastroCarrosCliente in 'views\UfraCadastroCarrosCliente.pas' {fraCadastroCarrosCliente: TFrame};
 
 {$R *.res}
 
