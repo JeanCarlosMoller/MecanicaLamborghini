@@ -52,12 +52,8 @@ uses
   UfraOrcamentosCliente in 'views\UfraOrcamentosCliente.pas' {fraOrcamentoCliente: TFrame},
   UfraOrcamentosMecanico in 'views\UfraOrcamentosMecanico.pas' {fraOrcamentosMecanico: TFrame},
   UfraCarrosCliente in 'views\UfraCarrosCliente.pas' {fraCarrosCliente: TFrame},
-<<<<<<< HEAD
-  UfraCadastroCarrosCliente in 'views\UfraCadastroCarrosCliente.pas' {fraCadastroCarrosCliente: TFrame};
-=======
   UfraNovoOrcamento in 'views\UfraNovoOrcamento.pas' {fraNovoOrcamento: TFrame},
   UfraOrcamentoCompletoCliente in 'views\UfraOrcamentoCompletoCliente.pas' {fraOrcamentoCompletoCliente: TFrame};
->>>>>>> main
 
 {$R *.res}
 
