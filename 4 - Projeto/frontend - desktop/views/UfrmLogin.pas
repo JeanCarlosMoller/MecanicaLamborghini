@@ -60,6 +60,8 @@ type
     procedure Animar;
     procedure FazerLogin;
     procedure Registrar;
+    procedure AbrirHomeCliente;
+    procedure AbrirHomeMecanico;
     { Private declarations }
   public
     { Public declarations }
@@ -71,13 +73,34 @@ var
 implementation
 
 uses
+  StrUtils,
   UService.Intf,
   UService.Login,
   UEntity.Logins,
   UService.Usuario,
-  UEntity.Usuarios;
+  UEntity.Usuarios, UfrmHomeMecanico, UfrmHomeUsuario;
 
 {$R *.fmx}
+
+procedure TFrmLogin.AbrirHomeCliente;
+begin
+  if not Assigned(frmHomeUsuario) then
+    frmHomeUsuario := TfrmHomeUsuario.Create(Application);
+
+  frmHomeUsuario.Show;
+  Application.MainForm := frmHomeUsuario;
+  Self.Close;
+end;
+
+procedure TFrmLogin.AbrirHomeMecanico;
+begin
+  if not Assigned(frmHomeMecanico) then
+    frmHomeMecanico := TfrmHomeMecanico.Create(Application);
+
+  frmHomeMecanico.Show;
+  Application.MainForm := frmHomeMecanico;
+  Self.Close;
+end;
 
 procedure TFrmLogin.Animar;
 begin
@@ -127,8 +150,13 @@ begin
   try
     TServiceLogin(xServiceLogin).Autenticar;
 
-    // implementação pendente...
-    ShowMessage('Logado com sucesso.')
+    case AnsiIndexStr(edtLoginAcesso.Text, ['mecanico', 'cliente']) of
+      0 :
+        Self.AbrirHomeMecanico;
+      1 :
+        Self.AbrirHomeCliente;
+    end;
+
   except on E: Exception do
     raise Exception.Create('Login: ' + E.Message);
   end;

@@ -1,18 +1,31 @@
-unit UfrmOrcamentoCompletoCliente;
+unit UfraOrcamentoCompletoCliente;
 
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
-  FMX.Objects, FMX.ListBox, FMX.Controls.Presentation, FMX.StdCtrls,
-  FMX.ListView, FMX.Layouts;
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
+  FMX.Objects, FMX.ListView.Types, FMX.ListView.Appearances,
+  FMX.ListView.Adapters.Base, FMX.ListView, FMX.Controls.Presentation,
+  FMX.Layouts;
 
 type
-  TfrmOrcamentoCompletoCliente = class(TForm)
+  TfraOrcamentoCompletoCliente = class(TFrame)
+    rectFundo: TRectangle;
+    logoLamborhini: TImage;
     lytPrincipal: TLayout;
     lytDadosOrcamento: TLayout;
+    Label4: TLabel;
+    lblNomeCliente: TLabel;
+    Label9: TLabel;
+    lblCelular: TLabel;
+    Label11: TLabel;
+    lblCarro: TLabel;
+    lblPlaca: TLabel;
+    Label24: TLabel;
+    Label10: TLabel;
+    Label23: TLabel;
+    Line4: TLine;
     lstListaOrcamentos: TLayout;
     lytOrcamentoPecas: TLayout;
     lstItensPecas: TListView;
@@ -28,6 +41,12 @@ type
     lytTituloOrcamento: TLayout;
     lblTituloOrcamento: TLabel;
     lytStatus: TLayout;
+    Label1: TLabel;
+    lblStatusOrcamento: TLabel;
+    rectAtualizarStatus: TRoundRect;
+    Label13: TLabel;
+    RoundRect1: TRoundRect;
+    Label2: TLabel;
     lytOrcamentosServicos: TLayout;
     lstItensServicos: TListView;
     lytHeaderServicos: TLayout;
@@ -43,33 +62,11 @@ type
     Label20: TLabel;
     Line3: TLine;
     lblValorTotal: TLabel;
-    rectFundo: TRectangle;
-    logoLamborhini: TImage;
-    Label1: TLabel;
-    lblStatusOrcamento: TLabel;
-    rectAtualizarStatus: TRoundRect;
-    Label13: TLabel;
-    RoundRect1: TRoundRect;
-    Label2: TLabel;
-    Label4: TLabel;
-    lblNomeCliente: TLabel;
-    Label9: TLabel;
-    lblCelular: TLabel;
-    Label11: TLabel;
-    lblCarro: TLabel;
-    lblPlaca: TLabel;
-    Label24: TLabel;
-    Label10: TLabel;
-    Label23: TLabel;
-    Line4: TLine;
   private
     { Private declarations }
   public
     { Public declarations }
   end;
-
-var
-  frmOrcamentoCompletoCliente: TfrmOrcamentoCompletoCliente;
 
 implementation
 
