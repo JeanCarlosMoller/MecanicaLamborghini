@@ -83,3 +83,8 @@ ALTER TABLE ItemServico ADD FOREIGN KEY(idServico) REFERENCES Servico (id);
 ALTER TABLE ItemServico ADD FOREIGN KEY(idOrcamento) REFERENCES Orcamento (id);
 ALTER TABLE ItemPeca ADD FOREIGN KEY(idOrcamento) REFERENCES Orcamento (id);
 ALTER TABLE ItemPeca ADD FOREIGN KEY(idPeca) REFERENCES Peca (id);
+
+USE `mecanica_lamborghini`;
+
+INSERT INTO `mecanica_lamborghini`.`usuario` (`TipoUser`, `Nome`, `CPF`, `Celular`, `email`, `Login`, `Senha`) VALUES ('Mec', 'Mecanico', '1', '11555556666', 'mecanico@teste.com', 'mecanico', '123');
+INSERT INTO `mecanica_lamborghini`.`usuario` (`TipoUser`, `Nome`, `CPF`, `Celular`, `email`, `Login`, `Senha`) VALUES ('User', 'Cliente', '2', '22777778888', 'cliente@teste.com', 'cliente', '123');
