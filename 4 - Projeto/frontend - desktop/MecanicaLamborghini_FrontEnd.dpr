@@ -44,17 +44,21 @@ uses
   UService.Orcamento in 'services\UService.Orcamento.pas',
   UService.ItemServico in 'services\UService.ItemServico.pas',
   UfrmLogin in 'views\UfrmLogin.pas' {FrmLogin},
-  UfrmOrcamentosMecanico in 'views\UfrmOrcamentosMecanico.pas' {frmOrcamentosMecanico},
   UfrmNovoOrcamento in 'views\UfrmNovoOrcamento.pas' {frmNovoOrcamento},
-  UfrmOrcamentosCliente in 'views\UfrmOrcamentosCliente.pas' {frmOrcamentosCliente},
   UfrmOrcamentoCompletoCliente in 'views\UfrmOrcamentoCompletoCliente.pas' {frmOrcamentoCompletoCliente},
   UfrmHomeMecanico in 'views\UfrmHomeMecanico.pas' {frmHomeMecanico},
-  UUtils.Enums in 'utils\UUtils.Enums.pas';
+  UUtils.Enums in 'utils\UUtils.Enums.pas',
+  UfrmHomeUsuario in 'views\UfrmHomeUsuario.pas' {frmHomeUsuario},
+  UfraEditarPerfilUsuario in 'views\UfraEditarPerfilUsuario.pas' {fraEditarPerfilUsuario: TFrame},
+  UfraEditarPerfilMecanico in 'views\UfraEditarPerfilMecanico.pas' {fraEditarPerfilMecanico: TFrame},
+  UfraOrcamentosCliente in 'views\UfraOrcamentosCliente.pas' {fraOrcamentoCliente: TFrame},
+  UfraOrcamentosMecanico in 'views\UfraOrcamentosMecanico.pas' {fraOrcamentosMecanico: TFrame},
+  UfraCarrosCliente in 'views\UfraCarrosCliente.pas' {fraCarrosCliente: TFrame};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TfrmHomeMecanico, frmHomeMecanico);
+  Application.CreateForm(TfrmHomeUsuario, frmHomeUsuario);
   Application.Run;
 end.

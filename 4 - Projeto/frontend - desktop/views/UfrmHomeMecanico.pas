@@ -24,8 +24,11 @@ type
     procedure lstMenuItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure imgLogoClick(Sender: TObject);
   private
     { Private declarations }
+    procedure AbrirEditarMecanico;
+    procedure AbrirOrcamentosMecanico;
   public
     { Public declarations }
   end;
@@ -36,9 +39,29 @@ var
 implementation
 
 uses
-  UUtils.Enums;
+  UUtils.Enums,
+  UfraEditarPerfilMecanico,
+  UfraOrcamentosMecanico;
 
 {$R *.fmx}
+
+procedure TfrmHomeMecanico.AbrirEditarMecanico;
+begin
+  if not Assigned(fraEditarPerfilMecanico) then
+    fraEditarPerfilMecanico := TfraEditarPerfilMecanico.Create(Application);
+
+  fraEditarPerfilMecanico.Align := TAlignLayout.Center;
+  lytPrincipal.AddObject(fraEditarPerfilMecanico);
+end;
+
+procedure TfrmHomeMecanico.AbrirOrcamentosMecanico;
+begin
+  if not Assigned(fraOrcamentosMecanico) then
+    fraOrcamentosMecanico := TfraOrcamentosMecanico.Create(Application);
+
+  fraOrcamentosMecanico.Align := TAlignLayout.Center;
+  lytPrincipal.AddObject(fraOrcamentosMecanico);
+end;
 
 procedure TfrmHomeMecanico.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -46,14 +69,19 @@ begin
   frmHomeMecanico := nil;
 end;
 
+procedure TfrmHomeMecanico.imgLogoClick(Sender: TObject);
+begin
+  AbrirEditarMecanico;
+end;
+
 procedure TfrmHomeMecanico.lstMenuItemClick(const Sender: TCustomListBox;
   const Item: TListBoxItem);
 begin
   // mnuOrcamentos, mnuServico, mnuPecas,
   // mnuGerenciarUsuario, mnuSair
-  case TEnumMenu(Item.Index) of
+  case TEnumMenuMecanico(Item.Index) of
     mnuOrcamentos:
-      ShowMessage('test');
+      AbrirOrcamentosMecanico;
     mnuServico:
       ShowMessage('test');
     mnuPecas:
