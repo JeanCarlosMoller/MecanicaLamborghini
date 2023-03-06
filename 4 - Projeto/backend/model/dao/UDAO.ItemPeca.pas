@@ -50,13 +50,13 @@ begin
   if xJSONObject.Count = 0 then
     Exit(xJSONObject);
 
-  xIdPeca := StrToInt(xJSONObject.GetValue('id_Peca').Value);
+  xIdPeca := StrToInt(xJSONObject.GetValue('idPeca').Value);
   xJSONObject.AddPair('peca', Self.ProcurarPecaPorId(xIdPeca));
-  xJSONObject.RemovePair('id_Peca');
+  xJSONObject.RemovePair('idPeca');
 
-  xIdOrcamento := StrToInt(xJSONObject.GetValue('id_Orcamento').Value);
+  xIdOrcamento := StrToInt(xJSONObject.GetValue('idOrcamento').Value);
   xJSONObject.AddPair('orcamento', Self.ProcurarOrcamentoPorId(xIdOrcamento));
-  xJSONObject.RemovePair('id_Orcamento');
+  xJSONObject.RemovePair('idOrcamento');
 
   Result := xJSONObject;
 end;
@@ -80,13 +80,13 @@ begin
     xJSONObject := TJSONObject.ParseJSONValue
       (TEncoding.ASCII.GetBytes(xJSONArray[I].ToJSON), 0) as TJSONObject;
 
-    xIdPeca := StrToInt(xJSONObject.GetValue('id_Peca').Value);
+    xIdPeca := StrToInt(xJSONObject.GetValue('idPeca').Value);
     xJSONObject.AddPair('peca', Self.ProcurarPecaPorId(xIdPeca));
-    xJSONObject.RemovePair('id_Peca');
+    xJSONObject.RemovePair('idPeca');
 
-    xIdOrcamento := StrToInt(xJSONObject.GetValue('id_Orcamento').Value);
+    xIdOrcamento := StrToInt(xJSONObject.GetValue('idOrcamento').Value);
     xJSONObject.AddPair('orcamento', Self.ProcurarOrcamentoPorId(xIdOrcamento));
-    xJSONObject.RemovePair('id_Orcamento');
+    xJSONObject.RemovePair('idOrcamento');
 
     xJSONArrayAux.AddElement(xJSONObject);
   end;

@@ -48,13 +48,13 @@ begin
     xJSONObject := TJSONObject.ParseJSONValue
       (TEncoding.ASCII.GetBytes(xJSONArray[I].ToJSON), 0) as TJSONObject;
 
-    xIdUsuario := StrToInt(xJSONObject.GetValue('id_Usuario').Value);
+    xIdUsuario := StrToInt(xJSONObject.GetValue('idUsuario').Value);
     xJSONObject.AddPair('usuario', Self.ProcurarUsuarioPorId(xIdUsuario));
-    xJSONObject.RemovePair('id_Usuario');
+    xJSONObject.RemovePair('idUsuario');
 
-    xIdCarro := StrToInt(xJSONObject.GetValue('id_Carro').Value);
+    xIdCarro := StrToInt(xJSONObject.GetValue('idCarro').Value);
     xJSONObject.AddPair('carro', Self.ProcurarCarroPorId(xIdCarro));
-    xJSONObject.RemovePair('id_Carro');
+    xJSONObject.RemovePair('idCarro');
 
     xJSONArrayAux.AddElement(xJSONObject);
   end;
@@ -86,13 +86,13 @@ begin
   if xJSONObject.Count = 0 then
     Exit(xJSONObject);
 
-  xIdUsuario := StrToInt(xJSONObject.GetValue('id_Usuario').Value);
+  xIdUsuario := StrToInt(xJSONObject.GetValue('idUsuario').Value);
   xJSONObject.AddPair('usuario', Self.ProcurarUsuarioPorId(xIdUsuario));
-  xJSONObject.RemovePair('id_Usuario');
+  xJSONObject.RemovePair('idUsuario');
 
-  xIdCarro := StrToInt(xJSONObject.GetValue('id_Carro').Value);
+  xIdCarro := StrToInt(xJSONObject.GetValue('idCarro').Value);
   xJSONObject.AddPair('carro', Self.ProcurarCarroPorId(xIdCarro));
-  xJSONObject.RemovePair('id_Carro');
+  xJSONObject.RemovePair('idCarro');
 
   Result := xJSONObject;
 end;

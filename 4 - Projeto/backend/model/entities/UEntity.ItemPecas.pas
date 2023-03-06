@@ -8,7 +8,7 @@ uses
   System.JSON;
 
 type
-  TItemPecas = class
+  TItemPeca = class
   private
     FId: Integer;
     FQnt: Integer;
@@ -60,18 +60,18 @@ uses
 
 { TItemPecas }
 
-constructor TItemPecas.Create;
+constructor TItemPeca.Create;
 begin
   FJSON := TJSONObject.Create;
 end;
 
-constructor TItemPecas.Create(aId: Integer);
+constructor TItemPeca.Create(aId: Integer);
 begin
   FId := aId;
   Self.Create;
 end;
 
-constructor TItemPecas.Create(aId, aQnt: Integer; aValorUn, aValorTotal: Double;
+constructor TItemPeca.Create(aId, aQnt: Integer; aValorUn, aValorTotal: Double;
   aOrcamento: TOrcamento; aPeca: TPeca);
 begin
   FId          := aId;
@@ -84,7 +84,7 @@ begin
   Self.Create;
 end;
 
-destructor TItemPecas.Destroy;
+destructor TItemPeca.Destroy;
 begin
   FreeAndNil(FOrcamento);
   FreeAndNil(FPeca);
@@ -92,74 +92,74 @@ begin
   inherited;
 end;
 
-function TItemPecas.GetId: Integer;
+function TItemPeca.GetId: Integer;
 begin
   Result := FId;
 end;
 
-function TItemPecas.GetJSON: TJSONObject;
+function TItemPeca.GetJSON: TJSONObject;
 begin
   FJSON.AddPair('id',          FId.ToString);
   FJSON.AddPair('qnt',         FQnt.ToString);
-  FJSON.AddPair('valorUn',     FValorUn.ToString);
-  FJSON.AddPair('valorTotal',  FValorTotal.ToString);
-  FJSON.AddPair('idOrcamento', FOrcamento.id.ToString);
-  FJSON.AddPair('idPeca',   FPeca.id.ToString);
+  FJSON.AddPair('valorun',     FValorUn.ToString);
+  FJSON.AddPair('valortotal',  FValorTotal.ToString);
+  FJSON.AddPair('idorcamento', FOrcamento.id.ToString);
+  FJSON.AddPair('idpeca',   FPeca.id.ToString);
 
   Result := FJSON;
 end;
 
-function TItemPecas.GetOrcamento: TOrcamento;
+function TItemPeca.GetOrcamento: TOrcamento;
 begin
   Result := FOrcamento;
 end;
 
-function TItemPecas.GetPeca: TPeca;
+function TItemPeca.GetPeca: TPeca;
 begin
   Result := FPeca;
 end;
 
-function TItemPecas.GetQnt: Integer;
+function TItemPeca.GetQnt: Integer;
 begin
   Result := FQnt;
 end;
 
-function TItemPecas.GetValorTotal: Double;
+function TItemPeca.GetValorTotal: Double;
 begin
   Result := FValorTotal;
 end;
 
-function TItemPecas.GetValorUn: Double;
+function TItemPeca.GetValorUn: Double;
 begin
   Result := FValorUn;
 end;
 
-procedure TItemPecas.SetId(const Value: Integer);
+procedure TItemPeca.SetId(const Value: Integer);
 begin
   FId := Value;
 end;
 
-procedure TItemPecas.SetOrcamento(const Value: TOrcamento);
+procedure TItemPeca.SetOrcamento(const Value: TOrcamento);
 begin
   FOrcamento := Value;
 end;
 
-procedure TItemPecas.SetPeca(const Value: TPeca);
+procedure TItemPeca.SetPeca(const Value: TPeca);
 begin
   FPeca := Value;
 end;
 
-procedure TItemPecas.SetQnt(const Value: Integer);
+procedure TItemPeca.SetQnt(const Value: Integer);
 begin
   FQnt := Value;
 end;
 
-procedure TItemPecas.SetValorTotal(const Value: Double);
+procedure TItemPeca.SetValorTotal(const Value: Double);
 begin
   FValorTotal := Value;
 end;
 
-procedure TItemPecas.SetValorUn(const Value: Double);
+procedure TItemPeca.SetValorUn(const Value: Double);
 begin
   FValorUn := Value;
 end;

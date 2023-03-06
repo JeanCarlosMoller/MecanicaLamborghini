@@ -2,11 +2,11 @@ object FrmLogin: TFrmLogin
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
-  Caption = 'Mec'#226'nica Lamborghini'
+  Caption = 'Login'
   ClientHeight = 600
   ClientWidth = 800
   Fill.Kind = Solid
-  Position = ScreenCenter
+  Position = Designed
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -3748,6 +3748,7 @@ object FrmLogin: TFrmLogin
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
+          OnClick = rectAcessarClick
           object Label4: TLabel
             Align = Center
             StyledSettings = [Family]
@@ -3791,6 +3792,7 @@ object FrmLogin: TFrmLogin
             Align = Center
             StyleLookup = 'transparentedit'
             TabOrder = 0
+            Password = True
             Size.Width = 220.000000000000000000
             Size.Height = 43.000000000000000000
             Size.PlatformDefault = False
@@ -3820,15 +3822,15 @@ object FrmLogin: TFrmLogin
   end
   object layoutConta: TLayout
     Align = Contents
-    Size.Width = 632.000000000000000000
-    Size.Height = 627.000000000000000000
+    Size.Width = 800.000000000000000000
+    Size.Height = 600.000000000000000000
     Size.PlatformDefault = False
     Visible = False
     TabOrder = 2
     object layoutContaCampos: TLayout
       Align = Left
       Size.Width = 281.000000000000000000
-      Size.Height = 627.000000000000000000
+      Size.Height = 600.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
       object Layout6: TLayout
@@ -3908,9 +3910,9 @@ object FrmLogin: TFrmLogin
     end
     object layoutContaTexto: TLayout
       Align = Right
-      Position.X = 292.000000000000000000
+      Position.X = 460.000000000000000000
       Size.Width = 340.000000000000000000
-      Size.Height = 627.000000000000000000
+      Size.Height = 600.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
       object Layout4: TLayout
@@ -7575,7 +7577,7 @@ object FrmLogin: TFrmLogin
         Align = Bottom
         Margins.Right = 40.000000000000000000
         Margins.Bottom = -40.000000000000000000
-        Position.Y = 367.000000000000000000
+        Position.Y = 340.000000000000000000
         Size.Width = 300.000000000000000000
         Size.Height = 300.000000000000000000
         Size.PlatformDefault = False

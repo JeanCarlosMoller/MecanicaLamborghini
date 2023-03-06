@@ -101,10 +101,10 @@ function TItemServico.GetJSON: TJSONObject;
 begin
   FJSON.AddPair('id',          FId.ToString);
   FJSON.AddPair('qnt',         FQnt.ToString);
-  FJSON.AddPair('valorUn',     FValorUn.ToString);
-  FJSON.AddPair('valorTotal',  FValorTotal.ToString);
-  FJSON.AddPair('idServico',   FServico.id.ToString);
-  FJSON.AddPair('idOrcamento', FOrcamento.id.ToString);
+  FJSON.AddPair('valorun',     FValorUn.ToString);
+  FJSON.AddPair('valortotal',  FValorTotal.ToString);
+  FJSON.AddPair('idservico',   FServico.id.ToString);
+  FJSON.AddPair('idorcamento', FOrcamento.id.ToString);
 
   Result := FJSON;
 end;
