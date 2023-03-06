@@ -189,6 +189,14 @@
             <Form>frmNovoOrcamento</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="views\UfrmOrcamentosCliente.pas">
+            <Form>frmOrcamentosCliente</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="views\UfrmOrcamentoCompletoCliente.pas">
+            <Form>frmOrcamentoCompletoCliente</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

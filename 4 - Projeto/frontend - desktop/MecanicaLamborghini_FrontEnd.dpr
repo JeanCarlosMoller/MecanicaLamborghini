@@ -45,12 +45,14 @@ uses
   UService.ItemServico in 'services\UService.ItemServico.pas',
   UfrmLogin in 'views\UfrmLogin.pas' {FrmLogin},
   UfrmOrcamentosMecanico in 'views\UfrmOrcamentosMecanico.pas' {frmOrcamentosMecanico},
-  UfrmNovoOrcamento in 'views\UfrmNovoOrcamento.pas' {frmNovoOrcamento};
+  UfrmNovoOrcamento in 'views\UfrmNovoOrcamento.pas' {frmNovoOrcamento},
+  UfrmOrcamentosCliente in 'views\UfrmOrcamentosCliente.pas' {frmOrcamentosCliente},
+  UfrmOrcamentoCompletoCliente in 'views\UfrmOrcamentoCompletoCliente.pas' {frmOrcamentoCompletoCliente};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TFrmLogin, FrmLogin);
+  Application.CreateForm(TfrmNovoOrcamento, frmNovoOrcamento);
   Application.Run;
 end.

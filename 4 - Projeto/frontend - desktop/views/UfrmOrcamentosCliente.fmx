@@ -1,11 +1,11 @@
-object frmNovoOrcamento: TfrmNovoOrcamento
+object frmOrcamentosCliente: TfrmOrcamentosCliente
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Mec'#226'nica Lamborghini'
   ClientHeight = 600
   ClientWidth = 800
   Position = ScreenCenter
-  StyleBook = StyleBook1
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -3632,869 +3632,163 @@ object frmNovoOrcamento: TfrmNovoOrcamento
     Size.Height = 600.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    object lytAdicionarItem: TLayout
+    object lytBotoes: TLayout
       Align = Top
       Size.Width = 800.000000000000000000
-      Size.Height = 150.000000000000000000
+      Size.Height = 100.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      object Rectangle1: TRectangle
-        Align = Center
-        Fill.Color = claNull
-        Size.Width = 700.000000000000000000
-        Size.Height = 130.000000000000000000
+      object rectVisualizarOrcamento: TRoundRect
+        Fill.Color = claBlack
+        Position.X = 310.000000000000000000
+        Position.Y = 32.500000000000000000
+        Size.Width = 180.000000000000000000
+        Size.Height = 35.000000000000000000
         Size.PlatformDefault = False
-        object rectTipoItem: TRoundRect
-          Fill.Color = xFFEAEAEA
-          Margins.Top = 10.000000000000000000
-          Position.X = 30.000000000000000000
-          Position.Y = 45.000000000000000000
-          Size.Width = 150.000000000000000000
-          Size.Height = 25.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Kind = None
-          object cmbTipoItem: TComboBox
-            Align = Center
-            Items.Strings = (
-              'Pe'#231'as'
-              'Servi'#231'os')
-            Size.Width = 120.000000000000000000
-            Size.Height = 25.000000000000000000
-            Size.PlatformDefault = False
-            StyleLookup = 'ComboBox1Style1'
-            TabOrder = 0
-          end
-        end
-        object rectQuantidade: TRoundRect
-          Fill.Color = xFFEAEAEA
-          Margins.Top = 10.000000000000000000
-          Position.X = 350.000000000000000000
-          Position.Y = 45.000000000000000000
-          Size.Width = 80.000000000000000000
-          Size.Height = 25.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Kind = None
-          object edtQuantidade: TEdit
-            Touch.InteractiveGestures = [LongTap, DoubleTap]
-            Align = Client
-            StyleLookup = 'transparentedit'
-            TabOrder = 0
-            TextSettings.HorzAlign = Center
-            Size.Width = 80.000000000000000000
-            Size.Height = 25.000000000000000000
-            Size.PlatformDefault = False
-          end
-        end
+        Stroke.Kind = None
         object Label1: TLabel
-          Align = Top
-          StyledSettings = [Family, FontColor]
-          Size.Width = 700.000000000000000000
-          Size.Height = 20.000000000000000000
+          Align = Client
+          StyledSettings = [Family]
+          Locked = True
+          Size.Width = 180.000000000000000000
+          Size.Height = 35.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 16.000000000000000000
-          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+          TextSettings.FontColor = claWhite
           TextSettings.HorzAlign = Center
-          Text = 'Adicionar Itens no Or'#231'amento'
-          TabOrder = 4
-        end
-        object Label9: TLabel
-          Position.X = 355.000000000000000000
-          Position.Y = 25.000000000000000000
-          Size.Width = 80.000000000000000000
-          Size.Height = 20.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'Quantidade:'
-          TabOrder = 2
-        end
-        object Label4: TLabel
-          Position.X = 35.000000000000000000
-          Position.Y = 25.000000000000000000
-          Size.Width = 120.000000000000000000
-          Size.Height = 20.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'Tipo do Item:'
-          TabOrder = 6
-        end
-        object rectAdicionarItem: TRoundRect
-          Fill.Color = claBlack
-          Position.X = 520.000000000000000000
-          Position.Y = 87.500000000000000000
-          Size.Width = 150.000000000000000000
-          Size.Height = 30.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Kind = None
-          OnClick = rectAdicionarItemClick
-          object Label2: TLabel
-            Align = Client
-            StyledSettings = [Family]
-            Locked = True
-            Size.Width = 150.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00060000000000000004000000}
-            TextSettings.FontColor = claWhite
-            TextSettings.HorzAlign = Center
-            Text = 'Adicionar Item'
-            TabOrder = 0
-          end
-        end
-        object lblUnidMedida: TLabel
-          Position.X = 440.000000000000000000
-          Position.Y = 45.000000000000000000
-          Size.Width = 80.000000000000000000
-          Size.Height = 25.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'Unid. Medida'
-          TabOrder = 8
-        end
-        object rectValorUnitario: TRoundRect
-          Fill.Color = xFFEAEAEA
-          Margins.Top = 10.000000000000000000
-          Position.X = 520.000000000000000000
-          Position.Y = 45.000000000000000000
-          Size.Width = 150.000000000000000000
-          Size.Height = 25.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Kind = None
-          object edtValorUnitario: TEdit
-            Touch.InteractiveGestures = [LongTap, DoubleTap]
-            Align = Client
-            StyleLookup = 'transparentedit'
-            TabOrder = 0
-            TextSettings.HorzAlign = Center
-            Size.Width = 150.000000000000000000
-            Size.Height = 25.000000000000000000
-            Size.PlatformDefault = False
-          end
-        end
-        object Label10: TLabel
-          Position.X = 525.000000000000000000
-          Position.Y = 25.000000000000000000
-          Size.Width = 80.000000000000000000
-          Size.Height = 20.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'Valor Unit'#225'rio:'
-          TabOrder = 1
-        end
-        object rectDescricacao: TRoundRect
-          Fill.Color = xFFEAEAEA
-          Margins.Top = 10.000000000000000000
-          Position.X = 30.000000000000000000
-          Position.Y = 90.000000000000000000
-          Size.Width = 400.000000000000000000
-          Size.Height = 25.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Kind = None
-          object edtDescricao: TEdit
-            Touch.InteractiveGestures = [LongTap, DoubleTap]
-            Align = Client
-            StyleLookup = 'transparentedit'
-            TabOrder = 0
-            TextSettings.HorzAlign = Center
-            Size.Width = 400.000000000000000000
-            Size.Height = 25.000000000000000000
-            Size.PlatformDefault = False
-          end
-        end
-        object Label11: TLabel
-          Position.X = 35.000000000000000000
-          Position.Y = 70.000000000000000000
-          Size.Width = 120.000000000000000000
-          Size.Height = 20.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'Decri'#231#227'o:'
-          TabOrder = 5
+          Text = 'Visualizar Or'#231'amento'
+          TabOrder = 0
         end
       end
     end
     object lstListaOrcamentos: TLayout
-      Align = Client
+      Align = Top
+      Position.Y = 130.000000000000000000
       Size.Width = 800.000000000000000000
-      Size.Height = 450.000000000000000000
+      Size.Height = 460.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      object lytOrcamentoPecas: TLayout
-        Align = Top
-        Position.Y = 60.000000000000000000
-        Size.Width = 800.000000000000000000
-        Size.Height = 175.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 2
-        object lstItensPecas: TListView
-          ItemAppearanceClassName = 'TDynamicAppearance'
-          ItemEditAppearanceClassName = 'TDynamicAppearance'
-          HeaderAppearanceClassName = 'TListHeaderObjects'
-          FooterAppearanceClassName = 'TListHeaderObjects'
-          Transparent = True
-          Align = Top
-          Margins.Left = 50.000000000000000000
-          Margins.Right = 50.000000000000000000
-          Position.X = 50.000000000000000000
-          Position.Y = 60.000000000000000000
-          Size.Width = 700.000000000000000000
-          Size.Height = 110.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          ItemAppearance.ItemHeight = 30
-          ItemAppearance.ItemEditHeight = 30
-          ItemAppearance.HeaderHeight = 1
-          ItemAppearance.FooterHeight = 1
-          ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
-            item
-              AppearanceObjectName = 'txtDescricao'
-              AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Width = 380.000000000000000000
-            end
-            item
-              AppearanceObjectName = 'txtQuantidade'
-              AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Width = 50.000000000000000000
-              Appearance.PlaceOffset.X = 380.000000000000000000
-            end
-            item
-              AppearanceObjectName = 'txtUnidadeMedida'
-              AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Width = 50.000000000000000000
-              Appearance.PlaceOffset.X = 430.000000000000000000
-            end
-            item
-              AppearanceObjectName = 'txtValorUnitario'
-              AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Width = 100.000000000000000000
-              Appearance.PlaceOffset.X = 480.000000000000000000
-            end
-            item
-              AppearanceObjectName = 'txtValorTotal'
-              AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Width = 100.000000000000000000
-              Appearance.PlaceOffset.X = 580.000000000000000000
-            end>
-          ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
-            item
-              AppearanceObjectName = 'Text1'
-              AppearanceClassName = 'TTextObjectAppearance'
-            end>
-          ItemAppearanceObjects.HeaderObjects.Text.Visible = False
-          ItemAppearanceObjects.FooterObjects.Text.Visible = False
-        end
-        object lytHeaderPecas: TLayout
-          Align = Top
-          Position.Y = 30.000000000000000000
-          Size.Width = 800.000000000000000000
-          Size.Height = 30.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 2
-          object Label8: TLabel
-            StyledSettings = [Family, FontColor]
-            Position.X = 640.000000000000000000
-            Size.Width = 100.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.HorzAlign = Center
-            Text = 'Valor Total'
-            TabOrder = 1
-          end
-          object Label7: TLabel
-            StyledSettings = [Family, FontColor]
-            Position.X = 540.000000000000000000
-            Size.Width = 100.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.HorzAlign = Center
-            Text = 'Valor Unit.'
-            TabOrder = 2
-          end
-          object Label6: TLabel
-            StyledSettings = [Family, FontColor]
-            Position.X = 490.000000000000000000
-            Size.Width = 50.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.HorzAlign = Center
-            Text = 'U.M.'
-            TabOrder = 3
-          end
-          object Label5: TLabel
-            StyledSettings = [Family, FontColor]
-            Position.X = 440.000000000000000000
-            Size.Width = 50.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.HorzAlign = Center
-            Text = 'Quant.'
-            TabOrder = 4
-          end
-          object Label3: TLabel
-            StyledSettings = [Family, FontColor]
-            Position.X = 60.000000000000000000
-            Size.Width = 380.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.HorzAlign = Center
-            Text = 'Descri'#231#227'o'
-            TabOrder = 5
-          end
-        end
-        object lytTituloPecas: TLayout
-          Align = Top
-          Size.Width = 800.000000000000000000
-          Size.Height = 30.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          object Label12: TLabel
-            Align = Center
-            StyledSettings = [Family, FontColor]
-            Size.Width = 100.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.HorzAlign = Center
-            Text = 'PE'#199'AS'
-            TabOrder = 1
-          end
-          object Line1: TLine
-            Align = Top
-            LineType = Diagonal
-            Margins.Left = 50.000000000000000000
-            Margins.Top = 5.000000000000000000
-            Margins.Right = 50.000000000000000000
-            Position.X = 50.000000000000000000
-            Position.Y = 5.000000000000000000
-            Size.Width = 700.000000000000000000
-            Size.Height = 1.000000000000000000
-            Size.PlatformDefault = False
-          end
-        end
-      end
-      object lytTituloOrcamento: TLayout
-        Align = Top
-        Size.Width = 800.000000000000000000
-        Size.Height = 30.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 4
-        object lblTituloOrcamento: TLabel
-          Align = Client
-          StyledSettings = [Family, FontColor]
-          Size.Width = 800.000000000000000000
-          Size.Height = 30.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Size = 14.000000000000000000
-          TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.HorzAlign = Center
-          Text = 'OR'#199'AMENTO N'#186' XXX'
-          TabOrder = 1
-        end
-      end
-      object lytStatus: TLayout
-        Align = Top
-        Position.Y = 30.000000000000000000
-        Size.Width = 800.000000000000000000
-        Size.Height = 30.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 3
-        object rectStatus: TRoundRect
-          Fill.Color = xFFEAEAEA
-          Margins.Top = 10.000000000000000000
-          Position.X = 50.000000000000000000
-          Position.Y = 5.000000000000000000
-          Size.Width = 250.000000000000000000
-          Size.Height = 25.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Kind = None
-          object cmbStatus: TComboBox
-            Align = Center
-            Items.Strings = (
-              'Pr'#233'-Or'#231'amento'
-              'Or'#231'amento em Andamento'
-              'Aguardando aprova'#231#227'o do Cliente'
-              'Aprovado e Aguardando Execu'#231#227'o'
-              'Servi'#231'o em Andamento'
-              'Servi'#231'o Conclu'#237'do')
-            Size.Width = 220.000000000000000000
-            Size.Height = 25.000000000000000000
-            Size.PlatformDefault = False
-            StyleLookup = 'ComboBox1Style1'
-            TabOrder = 0
-          end
-        end
-        object rectAtualizarStatus: TRoundRect
-          Fill.Color = claBlack
-          Position.X = 600.000000000000000000
-          Position.Y = 5.000000000000000000
-          Size.Width = 150.000000000000000000
-          Size.Height = 25.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Kind = None
-          object Label13: TLabel
-            Align = Client
-            StyledSettings = [Family]
-            Locked = True
-            Size.Width = 150.000000000000000000
-            Size.Height = 25.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00060000000000000004000000}
-            TextSettings.FontColor = claWhite
-            TextSettings.HorzAlign = Center
-            Text = 'Atualizar Status'
-            TabOrder = 0
-          end
-        end
-      end
-      object lytOrcamentosServicos: TLayout
-        Align = Top
-        Position.Y = 235.000000000000000000
-        Size.Width = 800.000000000000000000
-        Size.Height = 175.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-        object lstItensServicos: TListView
-          ItemAppearanceClassName = 'TDynamicAppearance'
-          ItemEditAppearanceClassName = 'TDynamicAppearance'
-          HeaderAppearanceClassName = 'TListHeaderObjects'
-          FooterAppearanceClassName = 'TListHeaderObjects'
-          Transparent = True
-          Align = Top
-          Margins.Left = 50.000000000000000000
-          Margins.Right = 50.000000000000000000
-          Position.X = 50.000000000000000000
-          Position.Y = 60.000000000000000000
-          Size.Width = 700.000000000000000000
-          Size.Height = 110.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          ItemAppearance.ItemHeight = 30
-          ItemAppearance.ItemEditHeight = 30
-          ItemAppearance.HeaderHeight = 1
-          ItemAppearance.FooterHeight = 1
-          ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
-            item
-              AppearanceObjectName = 'txtDescricao'
-              AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Width = 380.000000000000000000
-            end
-            item
-              AppearanceObjectName = 'txtQuantidade'
-              AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Width = 50.000000000000000000
-              Appearance.PlaceOffset.X = 380.000000000000000000
-            end
-            item
-              AppearanceObjectName = 'txtUnidadeMedida'
-              AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Width = 50.000000000000000000
-              Appearance.PlaceOffset.X = 430.000000000000000000
-            end
-            item
-              AppearanceObjectName = 'txtValorUnitario'
-              AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Width = 100.000000000000000000
-              Appearance.PlaceOffset.X = 480.000000000000000000
-            end
-            item
-              AppearanceObjectName = 'txtValorTotal'
-              AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Width = 100.000000000000000000
-              Appearance.PlaceOffset.X = 580.000000000000000000
-            end>
-          ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
-            item
-              AppearanceObjectName = 'Text1'
-              AppearanceClassName = 'TTextObjectAppearance'
-            end>
-          ItemAppearanceObjects.HeaderObjects.Text.Visible = False
-          ItemAppearanceObjects.FooterObjects.Text.Visible = False
-        end
-        object lytHeaderServicos: TLayout
-          Align = Top
-          Position.Y = 30.000000000000000000
-          Size.Width = 800.000000000000000000
-          Size.Height = 30.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 2
-          object Label14: TLabel
-            StyledSettings = [Family, FontColor]
-            Position.X = 640.000000000000000000
-            Size.Width = 100.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.HorzAlign = Center
-            Text = 'Valor Total'
-            TabOrder = 1
-          end
-          object Label15: TLabel
-            StyledSettings = [Family, FontColor]
-            Position.X = 540.000000000000000000
-            Size.Width = 100.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.HorzAlign = Center
-            Text = 'Valor Unit.'
-            TabOrder = 2
-          end
-          object Label16: TLabel
-            StyledSettings = [Family, FontColor]
-            Position.X = 490.000000000000000000
-            Size.Width = 50.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.HorzAlign = Center
-            Text = 'U.M.'
-            TabOrder = 3
-          end
-          object Label17: TLabel
-            StyledSettings = [Family, FontColor]
-            Position.X = 440.000000000000000000
-            Size.Width = 50.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.HorzAlign = Center
-            Text = 'Quant.'
-            TabOrder = 4
-          end
-          object Label18: TLabel
-            StyledSettings = [Family, FontColor]
-            Position.X = 60.000000000000000000
-            Size.Width = 380.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.HorzAlign = Center
-            Text = 'Descri'#231#227'o'
-            TabOrder = 5
-          end
-        end
-        object lytTituloServicos: TLayout
-          Align = Top
-          Size.Width = 800.000000000000000000
-          Size.Height = 30.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          object Label19: TLabel
-            Align = Center
-            StyledSettings = [Family, FontColor]
-            Size.Width = 100.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.HorzAlign = Center
-            Text = 'SERVI'#199'OS'
-            TabOrder = 1
-          end
-          object Line2: TLine
-            Align = Top
-            LineType = Diagonal
-            Margins.Left = 50.000000000000000000
-            Margins.Top = 5.000000000000000000
-            Margins.Right = 50.000000000000000000
-            Position.X = 50.000000000000000000
-            Position.Y = 5.000000000000000000
-            Size.Width = 700.000000000000000000
-            Size.Height = 1.000000000000000000
-            Size.PlatformDefault = False
-          end
-        end
-      end
-      object lytValorTotal: TLayout
-        Align = Top
-        Position.Y = 410.000000000000000000
-        Size.Width = 800.000000000000000000
+      object Label3: TLabel
+        StyledSettings = [Family, FontColor]
+        Position.X = 60.000000000000000000
+        Size.Width = 80.000000000000000000
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'N'#186' Or'#231'amento'
+        TabOrder = 4
+      end
+      object Label5: TLabel
+        StyledSettings = [Family, FontColor]
+        Position.X = 140.000000000000000000
+        Size.Width = 250.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'Carro'
+        TabOrder = 3
+      end
+      object Label7: TLabel
+        StyledSettings = [Family, FontColor]
+        Position.X = 390.000000000000000000
+        Size.Width = 150.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'Valor Total'
+        TabOrder = 2
+      end
+      object Label8: TLabel
+        StyledSettings = [Family, FontColor]
+        Position.X = 540.000000000000000000
+        Size.Width = 200.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'Status'
         TabOrder = 1
-        object Label20: TLabel
-          Align = Client
-          StyledSettings = [Family, FontColor]
-          Margins.Left = 200.000000000000000000
-          Margins.Right = 200.000000000000000000
-          Size.Width = 400.000000000000000000
-          Size.Height = 34.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Size = 14.000000000000000000
-          TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.HorzAlign = Trailing
-          Text = 'VALOR TOTAL:'
-          TabOrder = 2
-        end
-        object Line3: TLine
-          Align = Top
-          LineType = Diagonal
-          Margins.Left = 50.000000000000000000
-          Margins.Top = 5.000000000000000000
-          Margins.Right = 50.000000000000000000
-          Position.X = 50.000000000000000000
-          Position.Y = 5.000000000000000000
-          Size.Width = 700.000000000000000000
-          Size.Height = 1.000000000000000000
-          Size.PlatformDefault = False
-        end
-        object lblValorTotal: TLabel
-          Align = Client
-          StyledSettings = [Family, FontColor]
-          Margins.Left = 50.000000000000000000
-          Margins.Right = 50.000000000000000000
-          Size.Width = 700.000000000000000000
-          Size.Height = 34.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Size = 14.000000000000000000
-          TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.HorzAlign = Trailing
-          Text = 'R$ X.XXX,XX'
-          TabOrder = 1
-        end
-        object rectEditarItem: TRoundRect
-          Fill.Color = claBlack
-          Position.X = 50.000000000000000000
-          Position.Y = 10.000000000000000000
-          Size.Width = 100.000000000000000000
-          Size.Height = 25.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Kind = None
-          object Label21: TLabel
-            Align = Client
-            StyledSettings = [Family]
-            Locked = True
-            Size.Width = 100.000000000000000000
-            Size.Height = 25.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00060000000000000004000000}
-            TextSettings.FontColor = claWhite
-            TextSettings.HorzAlign = Center
-            Text = 'Editar Item'
-            TabOrder = 0
+      end
+      object lstOrcamentos: TListView
+        ItemAppearanceClassName = 'TDynamicAppearance'
+        ItemEditAppearanceClassName = 'TDynamicAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        Transparent = True
+        Align = Top
+        Margins.Left = 50.000000000000000000
+        Margins.Top = 40.000000000000000000
+        Margins.Right = 50.000000000000000000
+        Position.X = 50.000000000000000000
+        Position.Y = 40.000000000000000000
+        Size.Width = 700.000000000000000000
+        Size.Height = 410.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ItemAppearance.ItemHeight = 40
+        ItemAppearance.ItemEditHeight = 40
+        ItemAppearance.HeaderHeight = 1
+        ItemAppearance.FooterHeight = 1
+        ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'txtNumero'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Width = 80.000000000000000000
           end
-        end
-        object rectExcluirItem: TRoundRect
-          Fill.Color = claBlack
-          Position.X = 170.000000000000000000
-          Position.Y = 10.000000000000000000
-          Size.Width = 100.000000000000000000
-          Size.Height = 25.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Kind = None
-          object Label22: TLabel
-            Align = Client
-            StyledSettings = [Family]
-            Locked = True
-            Size.Width = 100.000000000000000000
-            Size.Height = 25.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00060000000000000004000000}
-            TextSettings.FontColor = claWhite
-            TextSettings.HorzAlign = Center
-            Text = 'Excluir Item'
-            TabOrder = 0
+          item
+            AppearanceObjectName = 'txtCliente'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Width = 250.000000000000000000
+            Appearance.PlaceOffset.X = 80.000000000000000000
           end
-        end
+          item
+            AppearanceObjectName = 'txtValorTotal'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Width = 150.000000000000000000
+            Appearance.PlaceOffset.X = 330.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'txtStatus'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Width = 200.000000000000000000
+            Appearance.PlaceOffset.X = 480.000000000000000000
+          end>
+        ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Text1'
+            AppearanceClassName = 'TTextObjectAppearance'
+          end>
+        ItemAppearanceObjects.HeaderObjects.Text.Visible = False
+        ItemAppearanceObjects.FooterObjects.Text.Visible = False
       end
     end
-  end
-  object StyleBook1: TStyleBook
-    Styles = <
-      item
+    object lytTitulo: TLayout
+      Align = Top
+      Position.Y = 100.000000000000000000
+      Size.Width = 800.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      object lblTitulo: TLabel
+        Align = Client
+        StyledSettings = [Family, FontColor]
+        Size.Width = 800.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'Meus Or'#231'amentos'
+        TabOrder = 1
       end
-      item
-        Platform = 'Windows 10 Desktop'
-        ResourcesBin = {
-          464D585F5354594C4520322E3501060F436F6D626F426F78315374796C653103
-          B815005450463007544C61796F75740E436F6D626F426F784272616E636F0953
-          74796C654E616D65060F436F6D626F426F78315374796C653105416C69676E07
-          0643656E7465720A53697A652E57696474680500000000000000F005400B5369
-          7A652E4865696768740500000000000000C803401453697A652E506C6174666F
-          726D44656661756C7408085461624F726465720255001254427574746F6E5374
-          796C654F626A65637400095374796C654E616D65060A6261636B67726F756E64
-          05416C69676E0708436F6E74656E74730C50616464696E672E4C656674050000
-          00000000008000400B50616464696E672E546F7005000000000000008000400D
-          50616464696E672E526967687405000000000000008000400E50616464696E67
-          2E426F74746F6D05000000000000008000400C536F757263654C6F6F6B757006
-          1B57696E646F7773203130204465736B746F707374796C652E706E670A53697A
-          652E57696474680500000000000000F005400B53697A652E4865696768740500
-          000000000000C803401453697A652E506C6174666F726D44656661756C740807
-          486F744C696E6B0E010E436170496E736574732E4C6566740500000000000000
-          A001400D436170496E736574732E546F700500000000000000A001400F436170
-          496E736574732E52696768740500000000000000A0014010436170496E736574
-          732E426F74746F6D0500000000000000A001400F536F75726365526563742E4C
-          65667405000000000000008001400E536F75726365526563742E546F70050000
-          0000000000C7064010536F75726365526563742E526967687405000000000000
-          00A8054011536F75726365526563742E426F74746F6D0500000000000000E406
-          4000010E436170496E736574732E4C65667405000000000000008002400D4361
-          70496E736574732E546F7005000000000000008002400F436170496E73657473
-          2E5269676874050000000000000080024010436170496E736574732E426F7474
-          6F6D0500000000000000800240055363616C650500000000000000C0FF3F0F53
-          6F75726365526563742E4C6566740500000000000000C001400E536F75726365
-          526563742E546F70050000000000000095074010536F75726365526563742E52
-          696768740500000000000000FC054011536F75726365526563742E426F74746F
-          6D0500000000000000AB074000010E436170496E736574732E4C656674050000
-          0000000000A002400D436170496E736574732E546F700500000000000000A002
-          400F436170496E736574732E52696768740500000000000000A0024010436170
-          496E736574732E426F74746F6D0500000000000000A00240055363616C650500
-          0000000000008000400F536F75726365526563742E4C65667405000000000000
-          008002400E536F75726365526563742E546F700500000000000000C707401053
-          6F75726365526563742E52696768740500000000000000A8064011536F757263
-          65526563742E426F74746F6D0500000000000000E4074000000B466F63757365
-          644C696E6B0E010E436170496E736574732E4C6566740500000000000000A001
-          400D436170496E736574732E546F700500000000000000A001400F436170496E
-          736574732E52696768740500000000000000A0014010436170496E736574732E
-          426F74746F6D0500000000000000A001400F536F75726365526563742E4C6566
-          7405000000000000008001400E536F75726365526563742E546F700500000000
-          000000C7064010536F75726365526563742E52696768740500000000000000A8
-          054011536F75726365526563742E426F74746F6D0500000000000000E4064000
-          010E436170496E736574732E4C65667405000000000000008002400D43617049
-          6E736574732E546F7005000000000000008002400F436170496E736574732E52
-          69676874050000000000000080024010436170496E736574732E426F74746F6D
-          0500000000000000800240055363616C650500000000000000C0FF3F0F536F75
-          726365526563742E4C6566740500000000000000C001400E536F757263655265
-          63742E546F70050000000000000095074010536F75726365526563742E526967
-          68740500000000000000FC054011536F75726365526563742E426F74746F6D05
-          00000000000000AB074000010E436170496E736574732E4C6566740500000000
-          000000A002400D436170496E736574732E546F700500000000000000A002400F
-          436170496E736574732E52696768740500000000000000A0024010436170496E
-          736574732E426F74746F6D0500000000000000A00240055363616C6505000000
-          000000008000400F536F75726365526563742E4C656674050000000000000080
-          02400E536F75726365526563742E546F700500000000000000C7074010536F75
-          726365526563742E52696768740500000000000000A8064011536F7572636552
-          6563742E426F74746F6D0500000000000000E4074000000A4E6F726D616C4C69
-          6E6B0E010E436170496E736574732E4C6566740500000000000000A001400D43
-          6170496E736574732E546F700500000000000000A001400F436170496E736574
-          732E52696768740500000000000000A0014010436170496E736574732E426F74
-          746F6D0500000000000000A001400F536F75726365526563742E4C6566740500
-          0000000000008001400E536F75726365526563742E546F700500000000000000
-          A8064010536F75726365526563742E52696768740500000000000000A8054011
-          536F75726365526563742E426F74746F6D0500000000000000C5064000010E43
-          6170496E736574732E4C65667405000000000000008002400D436170496E7365
-          74732E546F7005000000000000008002400F436170496E736574732E52696768
-          74050000000000000080024010436170496E736574732E426F74746F6D050000
-          0000000000800240055363616C650500000000000000C0FF3F0F536F75726365
-          526563742E4C6566740500000000000000C001400E536F75726365526563742E
-          546F700500000000000000FC064010536F75726365526563742E526967687405
-          00000000000000FC054011536F75726365526563742E426F74746F6D05000000
-          0000008093074000010E436170496E736574732E4C6566740500000000000000
-          A002400D436170496E736574732E546F700500000000000000A002400F436170
-          496E736574732E52696768740500000000000000A0024010436170496E736574
-          732E426F74746F6D0500000000000000A00240055363616C6505000000000000
-          008000400F536F75726365526563742E4C65667405000000000000008002400E
-          536F75726365526563742E546F700500000000000000A8074010536F75726365
-          526563742E52696768740500000000000000A8064011536F7572636552656374
-          2E426F74746F6D0500000000000000C5074000000B507265737365644C696E6B
-          0E010E436170496E736574732E4C6566740500000000000000A001400D436170
-          496E736574732E546F700500000000000000A001400F436170496E736574732E
-          52696768740500000000000000A0014010436170496E736574732E426F74746F
-          6D0500000000000000A001400F536F75726365526563742E4C65667405000000
-          000000008001400E536F75726365526563742E546F700500000000000000E606
-          4010536F75726365526563742E52696768740500000000000000A8054011536F
-          75726365526563742E426F74746F6D050000000000008081074000010E436170
-          496E736574732E4C65667405000000000000008002400D436170496E73657473
-          2E546F7005000000000000008002400F436170496E736574732E526967687405
-          0000000000000080024010436170496E736574732E426F74746F6D0500000000
-          000000800240055363616C650500000000000000C0FF3F0F536F757263655265
-          63742E4C6566740500000000000000C001400E536F75726365526563742E546F
-          700500000000000080AC074010536F75726365526563742E5269676874050000
-          0000000000FC054011536F75726365526563742E426F74746F6D050000000000
-          0000C2074000010E436170496E736574732E4C6566740500000000000000A002
-          400D436170496E736574732E546F700500000000000000A002400F436170496E
-          736574732E52696768740500000000000000A0024010436170496E736574732E
-          426F74746F6D0500000000000000A00240055363616C65050000000000000080
-          00400F536F75726365526563742E4C65667405000000000000008002400E536F
-          75726365526563742E546F700500000000000000E6074010536F757263655265
-          63742E52696768740500000000000000A8064011536F75726365526563742E42
-          6F74746F6D0500000000000080810840000013546F756368416E696D6174696F
-          6E2E4C696E6B0E00000A5452656374616E676C6500095374796C654E616D6506
-          0F52656374616E676C65315374796C6505416C69676E0708436F6E74656E7473
-          0A46696C6C2E436F6C6F7207097846464541454145410748697454657374080A
-          53697A652E57696474680500000000000000F005400B53697A652E4865696768
-          740500000000000000C803401453697A652E506C6174666F726D44656661756C
-          74080B5374726F6B652E4B696E6407044E6F6E650007544C61796F7574000541
-          6C69676E070552696768740A506F736974696F6E2E580500000000000000CC05
-          400A53697A652E576964746805000000000000009003400B53697A652E486569
-          6768740500000000000000C803401453697A652E506C6174666F726D44656661
-          756C7408085461624F726465720200001254427574746F6E5374796C654F626A
-          6563740005416C69676E070643656E7465720C536F757263654C6F6F6B757006
-          1B57696E646F7773203130204465736B746F707374796C652E706E670A53697A
-          652E57696474680500000000000000C002400B53697A652E4865696768740500
-          000000000000A002401453697A652E506C6174666F726D44656661756C740808
-          577261704D6F6465070643656E74657207486F744C696E6B0E010F536F757263
-          65526563742E4C6566740500000000000000BA05400E536F7572636552656374
-          2E546F70050000000000008095074010536F75726365526563742E5269676874
-          0500000000000000D2054011536F75726365526563742E426F74746F6D050000
-          00000000809A07400001055363616C650500000000000000C0FF3F0F536F7572
-          6365526563742E4C65667405000000000000008B06400E536F75726365526563
-          742E546F700500000000000080E0074010536F75726365526563742E52696768
-          7405000000000000009D064011536F75726365526563742E426F74746F6D0500
-          000000000000E807400001055363616C6505000000000000008000400F536F75
-          726365526563742E4C6566740500000000000000BA06400E536F757263655265
-          63742E546F7005000000000000C095084010536F75726365526563742E526967
-          68740500000000000000D2064011536F75726365526563742E426F74746F6D05
-          000000000000C09A084000000B466F63757365644C696E6B0E010F536F757263
-          65526563742E4C6566740500000000000000BA05400E536F7572636552656374
-          2E546F70050000000000008095074010536F75726365526563742E5269676874
-          0500000000000000D2054011536F75726365526563742E426F74746F6D050000
-          00000000809A07400001055363616C650500000000000000C0FF3F0F536F7572
-          6365526563742E4C65667405000000000000008B06400E536F75726365526563
-          742E546F700500000000000080E0074010536F75726365526563742E52696768
-          7405000000000000009D064011536F75726365526563742E426F74746F6D0500
-          000000000000E807400001055363616C6505000000000000008000400F536F75
-          726365526563742E4C6566740500000000000000BA06400E536F757263655265
-          63742E546F7005000000000000C095084010536F75726365526563742E526967
-          68740500000000000000D2064011536F75726365526563742E426F74746F6D05
-          000000000000C09A084000000A4E6F726D616C4C696E6B0E010F536F75726365
-          526563742E4C6566740500000000000000BA05400E536F75726365526563742E
-          546F70050000000000008095074010536F75726365526563742E526967687405
-          00000000000000D2054011536F75726365526563742E426F74746F6D05000000
-          000000809A07400001055363616C650500000000000000C0FF3F0F536F757263
-          65526563742E4C65667405000000000000008B06400E536F7572636552656374
-          2E546F700500000000000080E0074010536F75726365526563742E5269676874
-          05000000000000009D064011536F75726365526563742E426F74746F6D050000
-          0000000000E807400001055363616C6505000000000000008000400F536F7572
-          6365526563742E4C6566740500000000000000BA06400E536F75726365526563
-          742E546F70050000000000008095084010536F75726365526563742E52696768
-          740500000000000000D2064011536F75726365526563742E426F74746F6D0500
-          0000000000809A084000000B507265737365644C696E6B0E010F536F75726365
-          526563742E4C6566740500000000000000BA05400E536F75726365526563742E
-          546F70050000000000008095074010536F75726365526563742E526967687405
-          00000000000000D2054011536F75726365526563742E426F74746F6D05000000
-          000000809A07400001055363616C650500000000000000C0FF3F0F536F757263
-          65526563742E4C65667405000000000000008C06400E536F7572636552656374
-          2E546F700500000000000080E0074010536F75726365526563742E5269676874
-          05000000000000009E064011536F75726365526563742E426F74746F6D050000
-          0000000000E807400001055363616C6505000000000000008000400F536F7572
-          6365526563742E4C6566740500000000000000BA06400E536F75726365526563
-          742E546F7005000000000000C095084010536F75726365526563742E52696768
-          740500000000000000D2064011536F75726365526563742E426F74746F6D0500
-          0000000000C09A0840000013546F756368416E696D6174696F6E2E4C696E6B0E
-          00000000000007544C61796F757400095374796C654E616D650607636F6E7465
-          6E7405416C69676E0706436C69656E74064C6F636B6564090C4D617267696E73
-          2E4C65667405000000000000008000400B4D617267696E732E546F7005000000
-          000000008000400D4D617267696E732E52696768740500000000000000A00340
-          0E4D617267696E732E426F74746F6D05000000000000008000400A53697A652E
-          57696474680500000000000000C405400B53697A652E48656967687405000000
-          00000000A803401453697A652E506C6174666F726D44656661756C740800000B
-          54466F6E744F626A65637400095374796C654E616D650604666F6E7400000C54
-          42727573684F626A65637400095374796C654E616D65060A666F726567726F75
-          6E640B42727573682E436F6C6F720708636C61426C61636B000000}
-      end>
+    end
   end
 end
