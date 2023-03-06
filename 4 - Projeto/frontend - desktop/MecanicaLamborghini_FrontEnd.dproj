@@ -216,6 +216,10 @@
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
+<<<<<<< HEAD
+        <DCCReference Include="views\UfraCadastroCarrosCliente.pas">
+            <Form>fraCadastroCarrosCliente</Form>
+=======
         <DCCReference Include="views\UfraNovoOrcamento.pas">
             <Form>fraNovoOrcamento</Form>
             <FormType>fmx</FormType>
@@ -223,6 +227,7 @@
         </DCCReference>
         <DCCReference Include="views\UfraOrcamentoCompletoCliente.pas">
             <Form>fraOrcamentoCompletoCliente</Form>
+>>>>>>> main
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
