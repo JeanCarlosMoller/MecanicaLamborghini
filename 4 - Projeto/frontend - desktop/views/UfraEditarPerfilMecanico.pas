@@ -22,10 +22,10 @@ type
     Rectangle1: TRectangle;
     Rectangle2: TRectangle;
     Layout2: TLayout;
-    RoundRectSenha: TRoundRect;
-    edtSenhaAcesso: TEdit;
-    RoundRectLogin: TRoundRect;
-    edtLoginAcesso: TEdit;
+    RoundRectCelular: TRoundRect;
+    edtCelular: TEdit;
+    RoundRectNome: TRoundRect;
+    edtNome: TEdit;
     RoundRect4: TRoundRect;
     Edit4: TEdit;
     Rectangle3: TRectangle;

@@ -122,12 +122,7 @@ begin
 end;
 
 begin
-
   ConfigMiddleware;
   Registry;
-  THorse.Listen(9000,
-    procedure(Horse: THorse)
-    begin
-      Writeln('Server is running at port ' + IntToStr(Horse.Port));
-    end);
+  THorse.Listen(9000);
 end.
