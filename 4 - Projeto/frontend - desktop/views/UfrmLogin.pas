@@ -46,15 +46,20 @@ type
     Rectangle1: TRectangle;
     edtSenhaAcesso: TEdit;
     edtLoginAcesso: TEdit;
+    edtUsuarioCriarConta: TEdit;
+    edtCPFCriarConta: TEdit;
+    edtSenhaCriarConta: TEdit;
     procedure AnimationCircleFinish(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure btnCriarContaClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure rectAcessarClick(Sender: TObject);
+    procedure RoundRect10Click(Sender: TObject);
   private
     procedure PosicionaObjetos;
     procedure Animar;
     procedure FazerLogin;
+    procedure Registrar;
     { Private declarations }
   public
     { Public declarations }
@@ -66,7 +71,11 @@ var
 implementation
 
 uses
-  UService.Intf, UService.Login, UEntity.Logins;
+  UService.Intf,
+  UService.Login,
+  UEntity.Logins,
+  UService.Usuario,
+  UEntity.Usuarios;
 
 {$R *.fmx}
 
@@ -207,6 +216,39 @@ end;
 procedure TFrmLogin.rectAcessarClick(Sender: TObject);
 begin
   Self.FazerLogin;
+end;
+
+procedure TFrmLogin.Registrar;
+var
+  xServiceUsuario: IService;
+begin
+  if Trim(edtCPFCriarConta.Text) = EmptyStr then
+    raise Exception.Create('Informe o CPF.');
+
+  if Trim(edtUsuarioCriarConta.Text) = EmptyStr then
+    raise Exception.Create('Informe o Usuário.');
+
+  if Trim(edtSenhaCriarConta.Text) = EmptyStr then
+    raise Exception.Create('Informe a Senha.');
+
+  xServiceUsuario := TServiceUsuario.Create(
+    TUsuario.Create(Trim(edtCPFCriarConta.Text),
+                    Trim(edtUsuarioCriarConta.Text),
+                    Trim(edtSenhaCriarConta.Text)));
+
+  try
+    xServiceUsuario.Registrar;
+    ShowMessage('Usuário registrado com sucesso.');
+
+  except
+    on e: exception do
+      raise Exception.Create('Erro: ' + E.Message);
+  end;
+end;
+
+procedure TFrmLogin.RoundRect10Click(Sender: TObject);
+begin
+  Registrar;
 end;
 
 end.
