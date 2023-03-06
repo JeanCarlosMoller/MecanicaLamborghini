@@ -50,9 +50,11 @@ type
     procedure FormResize(Sender: TObject);
     procedure btnCriarContaClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure rectAcessarClick(Sender: TObject);
   private
     procedure PosicionaObjetos;
     procedure Animar;
+    procedure FazerLogin;
     { Private declarations }
   public
     { Public declarations }
@@ -62,6 +64,9 @@ var
   FrmLogin: TFrmLogin;
 
 implementation
+
+uses
+  UService.Intf, UService.Login, UEntity.Logins;
 
 {$R *.fmx}
 
@@ -94,6 +99,30 @@ end;
 procedure TFrmLogin.btnCriarContaClick(Sender: TObject);
 begin
     Animar;
+end;
+
+procedure TFrmLogin.FazerLogin;
+var
+  xServiceLogin : IService;
+begin
+  if Trim(edtLoginAcesso.Text) = EmptyStr then
+    raise Exception.Create('Informe o Login.');
+
+  if Trim(edtSenhaAcesso.Text) = EmptyStr then
+    raise Exception.Create('Informe a Senha');
+
+  xServiceLogin := TServiceLogin.Create(
+    TLogin.Create(Trim(edtLoginAcesso.Text),
+                  Trim(edtSenhaAcesso.Text)));
+
+  try
+    TServiceLogin(xServiceLogin).Autenticar;
+
+    // implementação pendente...
+    ShowMessage('Logado com sucesso.')
+  except on E: Exception do
+    raise Exception.Create('Login: ' + E.Message);
+  end;
 end;
 
 procedure TFrmLogin.FormResize(Sender: TObject);
@@ -173,6 +202,11 @@ begin
         imgConta.Visible := false;
     end;
 
+end;
+
+procedure TFrmLogin.rectAcessarClick(Sender: TObject);
+begin
+  Self.FazerLogin;
 end;
 
 end.
