@@ -60,13 +60,13 @@ begin
     xJSONObject := TJSONObject.ParseJSONValue
       (TEncoding.ASCII.GetBytes(xJSONArray[I].ToJSON), 0) as TJSONObject;
 
-    xIdServico := StrToInt(xJSONObject.GetValue('idservico').Value);
+    xIdServico := StrToInt(xJSONObject.GetValue('idServico').Value);
     xJSONObject.AddPair('servico', Self.ProcurarServicoPorId(xIdServico));
-    xJSONObject.RemovePair('iservico');
+    xJSONObject.RemovePair('idServico');
 
-    xIdOrcamento := StrToInt(xJSONObject.GetValue('idorcamento').Value);
+    xIdOrcamento := StrToInt(xJSONObject.GetValue('idOrcamento').Value);
     xJSONObject.AddPair('orcamento', Self.ProcurarOrcamentoPorId(xIdOrcamento));
-    xJSONObject.RemovePair('idorcamento');
+    xJSONObject.RemovePair('idOrcamento');
 
     xJSONArrayAux.AddElement(xJSONObject);
   end;
@@ -98,13 +98,13 @@ begin
   if xJSONObject.Count = 0 then
     Exit(xJSONObject);
 
-  xIdServico := StrToInt(xJSONObject.GetValue('idservico').Value);
+  xIdServico := StrToInt(xJSONObject.GetValue('idServico').Value);
   xJSONObject.AddPair('servico', Self.ProcurarServicoPorId(xIdServico));
-  xJSONObject.RemovePair('idservico');
+  xJSONObject.RemovePair('idServico');
 
-  xIdOrcamento := StrToInt(xJSONObject.GetValue('idorcamento').Value);
+  xIdOrcamento := StrToInt(xJSONObject.GetValue('idOrcamento').Value);
   xJSONObject.AddPair('orcamento', Self.ProcurarOrcamentoPorId(xIdOrcamento));
-  xJSONObject.RemovePair('idorcamento');
+  xJSONObject.RemovePair('idOrcamento');
 
   Result := xJSONObject;
 end;

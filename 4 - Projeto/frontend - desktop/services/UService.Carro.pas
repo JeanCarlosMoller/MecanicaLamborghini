@@ -49,8 +49,46 @@ uses
 { TServiceCarro }
 
 procedure TServiceCarro.PreencherCarros(const aJsonCarros: String);
+var
+  xMemTable: TFDMemTable;
+  xMemTableUsuario: TFDMemTable;
+  xUsuario: TUsuario;
 begin
-//
+  FCarros.Clear;
+
+  xMemTable := TFDMemTable.Create(nil);
+  xMemTableUsuario := TFDMemTable.Create(nil);
+
+  try
+    xMemTable.LoadFromJSON(FRESTResponse.Content);
+
+    while not xMemTable.Eof do
+    begin
+      xMemTableUsuario.LoadFromJSON(xMemTable.FieldByName('usuario').AsString);
+
+      xUsuario := TUsuario.Create(
+        xMemTableUsuario.FieldByName('id').AsInteger,
+        xMemTableUsuario.FieldByName('tipouser').AsString,
+        xMemTableUsuario.FieldByName('nome').AsString,
+        xMemTableUsuario.FieldByName('cpf').AsString,
+        xMemTableUsuario.FieldByName('celular').AsString,
+        xMemTableUsuario.FieldByName('email').AsString,
+        xMemTableUsuario.FieldByName('login').AsString,
+        xMemTableUsuario.FieldByName('senha').AsString);
+
+      FCarros.Add(TCarro.Create(xMemTable.FieldByName('id').AsInteger,
+                                xMemTable.FieldByName('ano').AsInteger,
+                                xMemTable.FieldByName('modelo').AsString,
+                                xMemTable.FieldByName('cor').AsString,
+                                xMemTable.FieldByName('placa').AsString,
+                                xMemTable.FieldByName('marca').AsString,
+                                xUsuario));
+      xMemTable.Next;
+    end;
+  finally
+    FreeAndNil(xMemTable);
+    FreeAndNil(xMemTableUsuario);
+  end;
 end;
 
 procedure TServiceCarro.PreencherUsuario(const aJsonUsuario: String; var aUsuario: TUsuario);

@@ -10,7 +10,7 @@ type
     private
       function ProcurarUsuario(const aId: Integer): TJSONObject;
     public
-      function ObterRegistros: TJSONArray; virtual;
+      function ObterRegistros: TJSONArray; override;
       function ProcurarPorId(const aIdentificador: Integer): TJSONObject; override;
       constructor Create;
   end;
@@ -47,9 +47,9 @@ begin
       TEncoding.ASCII.GetBytes(
         xJSONArray[I].ToJSON), 0) as TJSONObject;
 
-    xIdUser := StrToInt(xJSONObject.GetValue('idusuario').Value);
+    xIdUser := StrToInt(xJSONObject.GetValue('idUsuario').Value);
     xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));
-    xJSONObject.RemovePair('idusuario');
+    xJSONObject.RemovePair('idUsuario');
 
     xJSONArrayAux.AddElement(xJSONObject);
   end;
@@ -68,9 +68,9 @@ begin
   if xJSONObject.Count = 0 then
     Exit(xJSONObject);
 
-  xIdUser := StrToInt(xJSONObject.GetValue('idusuario').Value);
+  xIdUser := StrToInt(xJSONObject.GetValue('idUsuario').Value);
   xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));
-  xJSONObject.RemovePair('idusuario');
+  xJSONObject.RemovePair('idUsuario');
 
   Result := xJSONObject;
 end;
