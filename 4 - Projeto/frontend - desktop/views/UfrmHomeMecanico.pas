@@ -29,8 +29,10 @@ type
     { Private declarations }
     procedure AbrirEditarMecanico;
     procedure AbrirOrcamentosMecanico;
+    procedure RemoverTelaAnterior;
   public
     { Public declarations }
+
   end;
 
 var
@@ -41,7 +43,8 @@ implementation
 uses
   UUtils.Enums,
   UfraEditarPerfilMecanico,
-  UfraOrcamentosMecanico;
+  UfraOrcamentosMecanico,
+  UfraNovoOrcamento;
 
 {$R *.fmx}
 
@@ -77,8 +80,8 @@ end;
 procedure TfrmHomeMecanico.lstMenuItemClick(const Sender: TCustomListBox;
   const Item: TListBoxItem);
 begin
-  // mnuOrcamentos, mnuServico, mnuPecas,
-  // mnuGerenciarUsuario, mnuSair
+  Self.RemoverTelaAnterior;
+
   case TEnumMenuMecanico(Item.Index) of
     mnuOrcamentos:
       AbrirOrcamentosMecanico;
@@ -91,6 +94,15 @@ begin
     mnuSair:
       Self.Close;
   end;
+end;
+
+procedure TfrmHomeMecanico.RemoverTelaAnterior;
+
+var
+  I: Integer;
+begin
+  for I := Pred(lytPrincipal.ControlsCount) downto 0 do
+      lytPrincipal.RemoveObject(I)
 end;
 
 end.
