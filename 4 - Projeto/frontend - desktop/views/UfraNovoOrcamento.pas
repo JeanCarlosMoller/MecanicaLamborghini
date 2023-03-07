@@ -72,8 +72,13 @@ type
     logoLamborhini: TImage;
     StyleBook1: TStyleBook;
     procedure rectAdicionarItemClick(Sender: TObject);
+    procedure lblValorTotalResized(Sender: TObject);
+    procedure rectExcluirItemClick(Sender: TObject);
   private
     { Private declarations }
+    FValorTotal : Double;
+    procedure ExcluirPeca;
+    procedure ExcluirServico;
   public
     { Public declarations }
   end;
@@ -84,14 +89,17 @@ implementation
 
 {$R *.fmx}
 
+procedure TfraNovoOrcamento.lblValorTotalResized(Sender: TObject);
+begin
+  lblTituloOrcamento.Text := 'ORÇAMENTO Nº ' + FloatToStr(Random(9999));
+end;
+
 procedure TfraNovoOrcamento.rectAdicionarItemClick(Sender: TObject);
 var
   xItem: TListViewItem;
   xValorTotal : Double;
 
 begin
-
-
   case cmbTipoItem.ItemIndex of
     0: //Peças
     begin
@@ -107,7 +115,7 @@ begin
   end;
 
   xValorTotal := StrToFloat(edtQuantidade.Text) * StrToFloat(edtValorUnitario.Text);
-
+  FValorTotal := FValorTotal + xValorTotal;
 
   TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text := edtDescricao.Text;
   TListItemText(xItem.Objects.FindDrawable('txtQuantidade')).Text := edtQuantidade.Text;
@@ -115,6 +123,32 @@ begin
   TListItemText(xItem.Objects.FindDrawable('txtValorUnitario')).Text := edtValorUnitario.Text;
   TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text := FloatToStr(xValorTotal);
 
+  lblValorTotal.Text := FormatFloat('R$ ###,###,##0.00',FValorTotal);
 end;
+
+procedure TfraNovoOrcamento.rectExcluirItemClick(Sender: TObject);
+begin
+  Self.ExcluirPeca;
+  Self.ExcluirServico;
+end;
+
+procedure TfraNovoOrcamento.ExcluirPeca;
+var
+  xItem: TListViewItem;
+begin
+  if lstItensPecas.ItemIndex = -1 then
+    Exit;
+  lstItensPecas.Items.Delete(lstItensPecas.ItemIndex);
+end;
+
+procedure TfraNovoOrcamento.ExcluirServico;
+var
+  xItem: TListViewItem;
+begin
+  if lstItensServicos.ItemIndex = -1 then
+    Exit;
+  lstItensServicos.Items.Delete(lstItensServicos.ItemIndex);
+end;
+
 
 end.
