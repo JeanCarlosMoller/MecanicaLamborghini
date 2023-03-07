@@ -71,14 +71,50 @@ type
     rectFundo: TRectangle;
     logoLamborhini: TImage;
     StyleBook1: TStyleBook;
+    procedure rectAdicionarItemClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
   end;
 
+var
+  fraNovoOrcamento: TfraNovoOrcamento;
 implementation
 
 {$R *.fmx}
+
+procedure TfraNovoOrcamento.rectAdicionarItemClick(Sender: TObject);
+var
+  xItem: TListViewItem;
+  xValorTotal : Double;
+
+begin
+
+
+  case cmbTipoItem.ItemIndex of
+    0: //Peças
+    begin
+      xItem := lstItensPecas.Items.Add;
+      lblUnidMedida.Text := 'un';
+    end;
+    1: //Serviços
+    begin
+      xItem := lstItensServicos.Items.Add;
+      lblUnidMedida.Text := 'h';
+    end;
+
+  end;
+
+  xValorTotal := StrToFloat(edtQuantidade.Text) * StrToFloat(edtValorUnitario.Text);
+
+
+  TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text := edtDescricao.Text;
+  TListItemText(xItem.Objects.FindDrawable('txtQuantidade')).Text := edtQuantidade.Text;
+  TListItemText(xItem.Objects.FindDrawable('txtUnidadeMedida')).Text := lblUnidMedida.Text;
+  TListItemText(xItem.Objects.FindDrawable('txtValorUnitario')).Text := edtValorUnitario.Text;
+  TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text := FloatToStr(xValorTotal);
+
+end;
 
 end.

@@ -30,6 +30,8 @@ type
     procedure AbrirEditarUsuario;
     procedure AbrirOrcamentoUsuario;
     procedure AbrirCarrosCliente;
+
+    procedure RemoverTelaAnterior;
   public
     { Public declarations }
   end;
@@ -50,7 +52,7 @@ uses
 procedure TfrmHomeUsuario.AbrirCarrosCliente;
 begin
   if not Assigned(fraCarrosCliente) then
-    fraCarrosCliente := TfraCarrosCliente.Create(Application);
+    fraCarrosCliente := TfraCarrosCliente.Create(nil);
 
   fraCarrosCliente.Align := TAlignLayout.Center;
   lytPrincipal.AddObject(fraCarrosCliente);
@@ -78,6 +80,9 @@ procedure TfrmHomeUsuario.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := TCloseAction.caFree;
   frmHomeUsuario := nil;
+
+  fraCarrosCliente.Free;
+  fraCarrosCliente := nil;
 end;
 
 procedure TfrmHomeUsuario.imgLogoClick(Sender: TObject);
@@ -88,8 +93,8 @@ end;
 procedure TfrmHomeUsuario.lstMenuItemClick(const Sender: TCustomListBox;
   const Item: TListBoxItem);
 begin
-  // mnuOrcamentosCliente, mnuSimularServico,
-  // mnuMeusCarros, mnuSairCliente
+  Self.RemoverTelaAnterior;
+
   case TEnumMenuCliente(Item.Index) of
     mnuOrcamentosCliente:
       AbrirOrcamentoUsuario;
@@ -102,7 +107,17 @@ begin
 
     mnuSairCliente:
       Self.Close;
+
   end;
 end;
+
+procedure TfrmHomeUsuario.RemoverTelaAnterior;
+var
+  I: Integer;
+begin
+  for I := Pred(lytPrincipal.ControlsCount) downto 0 do
+      lytPrincipal.RemoveObject(I)
+end;
+
 
 end.
