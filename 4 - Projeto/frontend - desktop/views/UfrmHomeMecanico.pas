@@ -99,6 +99,8 @@ begin
     mnuSair:
       Self.Close;
   end;
+
+  MultiView1.HideMaster;
 end;
 
 procedure TfrmHomeMecanico.RemoverTelaAnterior;

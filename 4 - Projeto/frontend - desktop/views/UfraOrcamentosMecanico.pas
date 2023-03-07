@@ -3,7 +3,7 @@ unit UfraOrcamentosMecanico;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Types, System.UITypes, System.Classes,
   System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Objects,
@@ -29,10 +29,9 @@ type
     Label7: TLabel;
     Label8: TLabel;
     lstOrcamentos: TListView;
-    Button1: TButton;
     procedure rectNovoOrcamentoClick(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
     procedure rectExcluirOrcamentoClick(Sender: TObject);
+    procedure FrameResized(Sender: TObject);
   private
     { Private declarations }
     procedure ExcluirRegistro;
@@ -48,24 +47,12 @@ implementation
 
 uses
   UfraNovoOrcamento,
-  UfrmHomeMecanico;
+  UfrmHomeMecanico, System.SysUtils;
 
 {$R *.fmx}
 
-procedure TfraOrcamentosMecanico.Button1Click(Sender: TObject);
-var
-  xItem: TListViewItem;
-begin
-  xItem := lstOrcamentos.Items.Add;
 
-  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := '0192';
-  TListItemText(xItem.Objects.FindDrawable('txtCliente')).Text := 'João Silva';
-  TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text :=
-    'R$ 1.500,00';
-  TListItemText(xItem.Objects.FindDrawable('txtStatus')).Text :=
-    'Aguardando Aprovação Cliente';
 
-end;
 
 procedure TfraOrcamentosMecanico.ExcluirRegistro;
 var
@@ -76,6 +63,69 @@ begin
 
   lstOrcamentos.Items.Delete(lstOrcamentos.ItemIndex);
 
+end;
+
+procedure TfraOrcamentosMecanico.FrameResized(Sender: TObject);
+var
+  xItem: TListViewItem;
+  I: Integer;
+begin
+  for I := 1 to 3 do
+  begin
+    xItem := lstOrcamentos.Items.Add;
+
+    TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := FloatToStr(Random(9999));
+    TListItemText(xItem.Objects.FindDrawable('txtCliente')).Text := 'João Silva';
+    TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text :=
+      'R$ 1.300,00';
+    TListItemText(xItem.Objects.FindDrawable('txtStatus')).Text :=
+      'Aguardando Aprovação Cliente';
+
+    xItem := lstOrcamentos.Items.Add;
+
+    TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := FloatToStr(Random(9999));
+    TListItemText(xItem.Objects.FindDrawable('txtCliente')).Text := 'Pedro Santos';
+    TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text :=
+      'R$ 1.000,00';
+    TListItemText(xItem.Objects.FindDrawable('txtStatus')).Text :=
+      'Serviço em Andamento';
+
+    xItem := lstOrcamentos.Items.Add;
+
+    TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := FloatToStr(Random(9999));
+    TListItemText(xItem.Objects.FindDrawable('txtCliente')).Text := 'José Correa';
+    TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text :=
+      'R$ 4.000,00';
+    TListItemText(xItem.Objects.FindDrawable('txtStatus')).Text :=
+      'Aprovado e Aguardando Execução';
+
+    xItem := lstOrcamentos.Items.Add;
+
+    TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := FloatToStr(Random(9999));
+    TListItemText(xItem.Objects.FindDrawable('txtCliente')).Text := 'Marcos Almeida';
+    TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text :=
+      'R$ 400,00';
+    TListItemText(xItem.Objects.FindDrawable('txtStatus')).Text :=
+      'Serviço em Andamento';
+
+    xItem := lstOrcamentos.Items.Add;
+
+    TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := FloatToStr(Random(9999));
+    TListItemText(xItem.Objects.FindDrawable('txtCliente')).Text := 'Cristiano Silva';
+    TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text :=
+      'R$ 690,00';
+    TListItemText(xItem.Objects.FindDrawable('txtStatus')).Text :=
+      'Serviço Concluído';
+
+    xItem := lstOrcamentos.Items.Add;
+
+     TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := FloatToStr(Random(9999));
+    TListItemText(xItem.Objects.FindDrawable('txtCliente')).Text := 'Daniel Pereira';
+    TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text :=
+      'R$ 900,00';
+    TListItemText(xItem.Objects.FindDrawable('txtStatus')).Text :=
+      'Serviço Concluído';
+  end;
 end;
 
 procedure TfraOrcamentosMecanico.rectExcluirOrcamentoClick(Sender: TObject);
