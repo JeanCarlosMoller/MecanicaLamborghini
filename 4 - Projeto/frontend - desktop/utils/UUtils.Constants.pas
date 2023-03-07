@@ -20,6 +20,12 @@ const
   API_SUCESSO_SEM_RETORNO = 204;
   API_NAO_AUTORIZADO = 401;
 
+  // Configurações de envio de email
+  MAIL_EMAIL = 'maximilianomfurtado@gmail.com'; // Crie um email para enviar emails
+  MAIL_PASSWORD = 'rntwfcfcbnmupimj'; //Senha que precisa gerar para aplicativos
+  MAIL_PORT = 587; //Porta padrão
+  MAIL_SMTP = 'smtp.gmail.com'; //"Email" Padrão do SMTP
+
 implementation
 
 end.
