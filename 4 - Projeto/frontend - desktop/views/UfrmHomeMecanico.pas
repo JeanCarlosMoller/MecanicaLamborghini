@@ -83,21 +83,25 @@ begin
   Self.RemoverTelaAnterior;
 
   case TEnumMenuMecanico(Item.Index) of
+
     mnuOrcamentos:
       AbrirOrcamentosMecanico;
+
     mnuServico:
       ShowMessage('test');
+
     mnuPecas:
       ShowMessage('test');
+
     mnuGerenciarUsuario:
       ShowMessage('test');
+
     mnuSair:
       Self.Close;
   end;
 end;
 
 procedure TfrmHomeMecanico.RemoverTelaAnterior;
-
 var
   I: Integer;
 begin

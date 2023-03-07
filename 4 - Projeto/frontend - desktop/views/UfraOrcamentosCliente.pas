@@ -3,9 +3,12 @@ unit UfraOrcamentosCliente;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
-  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls, FMX.Objects,
-  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView,
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
+  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
+  FMX.Objects,
+  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
+  FMX.ListView,
   FMX.Controls.Presentation, FMX.Layouts;
 
 type
@@ -24,6 +27,9 @@ type
     lstOrcamentos: TListView;
     lytTitulo: TLayout;
     lblTitulo: TLabel;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure rectVisualizarOrcamentoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,10 +37,41 @@ type
   end;
 
 var
- fraOrcamentoCliente : TfraOrcamentoCliente;
+  fraOrcamentoCliente: TfraOrcamentoCliente;
 
 implementation
 
+uses
+  UfraOrcamentoCompletoCliente;
+
 {$R *.fmx}
+
+procedure TfraOrcamentoCliente.Button1Click(Sender: TObject);
+var
+  xItem: TListViewItem;
+begin
+  xItem := lstOrcamentos.Items.Add;
+
+  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := '12344321';
+  TListItemText(xItem.Objects.FindDrawable('txtCliente')).Text := 'Möller';
+  TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text := '600';
+  TListItemText(xItem.Objects.FindDrawable('txtStatus')).Text :=
+    'Aguardando aprovação';
+end;
+
+procedure TfraOrcamentoCliente.rectVisualizarOrcamentoClick(Sender: TObject);
+begin
+
+  if lstOrcamentos.ItemIndex = -1 then
+    Exit;
+
+  if not Assigned(fraOrcamentoCompletoCliente) then
+    fraOrcamentoCompletoCliente := TfraOrcamentoCompletoCliente.Create(Application);
+
+  fraOrcamentoCompletoCliente.Align := TAlignLayout.Center;
+  Self.Parent.AddObject(fraOrcamentoCompletoCliente);
+
+
+end;
 
 end.

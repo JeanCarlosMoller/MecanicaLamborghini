@@ -32,8 +32,10 @@ type
     Button1: TButton;
     procedure rectNovoOrcamentoClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure rectExcluirOrcamentoClick(Sender: TObject);
   private
     { Private declarations }
+    procedure ExcluirRegistro;
 
   public
     { Public declarations }
@@ -63,6 +65,22 @@ begin
   TListItemText(xItem.Objects.FindDrawable('txtStatus')).Text :=
     'Aguardando Aprovação Cliente';
 
+end;
+
+procedure TfraOrcamentosMecanico.ExcluirRegistro;
+var
+  xItem: TListViewItem;
+begin
+  if lstOrcamentos.ItemIndex = -1 then
+    Exit;
+
+  lstOrcamentos.Items.Delete(lstOrcamentos.ItemIndex);
+
+end;
+
+procedure TfraOrcamentosMecanico.rectExcluirOrcamentoClick(Sender: TObject);
+begin
+  ExcluirRegistro
 end;
 
 procedure TfraOrcamentosMecanico.rectNovoOrcamentoClick(Sender: TObject);

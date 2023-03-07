@@ -68,6 +68,9 @@ type
     { Public declarations }
   end;
 
+var
+fraOrcamentoCompletoCliente: TfraOrcamentoCompletoCliente;
+
 implementation
 
 {$R *.fmx}
