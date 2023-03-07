@@ -54,12 +54,13 @@ uses
   UfraCarrosCliente in 'views\UfraCarrosCliente.pas' {fraCarrosCliente: TFrame},
   UfraNovoOrcamento in 'views\UfraNovoOrcamento.pas' {fraNovoOrcamento: TFrame},
   UfraOrcamentoCompletoCliente in 'views\UfraOrcamentoCompletoCliente.pas' {fraOrcamentoCompletoCliente: TFrame},
-  UfraCadastroCarrosCliente in 'views\UfraCadastroCarrosCliente.pas' {fraCadastroCarrosCliente: TFrame};
+  UfraCadastroCarrosCliente in 'views\UfraCadastroCarrosCliente.pas' {fraCadastroCarrosCliente: TFrame},
+  UfrmSplash in 'views\UfrmSplash.pas' {frmSplash};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TFrmLogin, FrmLogin);
+  Application.CreateForm(TfrmSplash, frmSplash);
   Application.Run;
 end.
