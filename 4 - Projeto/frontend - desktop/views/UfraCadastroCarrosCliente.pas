@@ -22,27 +22,34 @@ type
     Rectangle2: TRectangle;
     Layout2: TLayout;
     RoundRectSenha: TRoundRect;
-    edtSenhaAcesso: TEdit;
+    edtAnoCarro: TEdit;
     RoundRectLogin: TRoundRect;
-    edtLoginAcesso: TEdit;
+    edtMarcaCarro: TEdit;
     Rectangle3: TRectangle;
     Layout1: TLayout;
     RoundRect2: TRoundRect;
-    Edit1: TEdit;
+    edtCorCarro: TEdit;
     RoundRect3: TRoundRect;
-    Edit2: TEdit;
+    edtModeloCarro: TEdit;
     RoundRect1: TRoundRect;
-    Edit3: TEdit;
+    edtPlacaCarro: TEdit;
     lytPrincipal: TLayout;
   private
     { Private declarations }
   public
     { Public declarations }
+
   end;
 var
   fraCadastroCarrosCliente: TfraCadastroCarrosCliente;
 implementation
 
+uses
+   UService.Intf,
+   UService.Carro,
+   UEntity.Carros;
+
 {$R *.fmx}
+
 
 end.

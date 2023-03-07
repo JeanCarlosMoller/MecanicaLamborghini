@@ -80,9 +80,6 @@ procedure TfrmHomeUsuario.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := TCloseAction.caFree;
   frmHomeUsuario := nil;
-
-  fraCarrosCliente.Free;
-  fraCarrosCliente := nil;
 end;
 
 procedure TfrmHomeUsuario.imgLogoClick(Sender: TObject);
@@ -96,6 +93,7 @@ begin
   Self.RemoverTelaAnterior;
 
   case TEnumMenuCliente(Item.Index) of
+
     mnuOrcamentosCliente:
       AbrirOrcamentoUsuario;
 

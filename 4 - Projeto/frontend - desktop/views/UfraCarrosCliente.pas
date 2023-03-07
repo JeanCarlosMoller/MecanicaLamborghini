@@ -28,9 +28,13 @@ type
     rectExcluirCarro: TRoundRect;
     Label1: TLabel;
     Label2: TLabel;
+    Button1: TButton;
     procedure rectNovoCarroClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure rectExcluirCarroClick(Sender: TObject);
   private
     { Private declarations }
+    procedure ExcluirRegistro;
   public
     { Public declarations }
   end;
@@ -40,21 +44,48 @@ var
 
 implementation
 
+uses
+  UfraCadastroCarrosCliente;
+
 {$R *.fmx}
 
-procedure TfraCarrosCliente.rectNovoCarroClick(Sender: TObject);
+procedure TfraCarrosCliente.Button1Click(Sender: TObject);
+var
+  xItem: TListViewItem;
 begin
-  var
-    xItem: TListViewItem;
-  begin
-    xItem := lstCarros.Items.Add;
+  xItem := lstCarros.Items.Add;
 
-  TListItemText(xItem.Objects.FindDrawable('txtModelo')).Text := 'Lamborghini Aventador';
+  TListItemText(xItem.Objects.FindDrawable('txtModelo')).Text :=
+    'Lamborghini Aventador';
   TListItemText(xItem.Objects.FindDrawable('txtMarca')).Text := 'Lamborghini';
   TListItemText(xItem.Objects.FindDrawable('txtCor')).Text := 'Preta';
   TListItemText(xItem.Objects.FindDrawable('txtAno')).Text := '2023';
   TListItemText(xItem.Objects.FindDrawable('txtPlaca')).Text := 'BRA1E23';
-  end;
+end;
+
+procedure TfraCarrosCliente.ExcluirRegistro;
+var
+  xItem: TListViewItem;
+begin
+  if lstCarros.ItemIndex = -1 then
+    Exit;
+
+  lstCarros.Items.Delete(lstCarros.ItemIndex);
+
+end;
+
+procedure TfraCarrosCliente.rectExcluirCarroClick(Sender: TObject);
+begin
+  ExcluirRegistro;
+end;
+
+procedure TfraCarrosCliente.rectNovoCarroClick(Sender: TObject);
+begin
+  if not Assigned(fraCadastroCarrosCliente) then
+    fraCadastroCarrosCliente := TfraCadastroCarrosCliente.Create(Application);
+
+  fraCadastroCarrosCliente.Align := TAlignLayout.Center;
+  Self.Parent.AddObject(fraCadastroCarrosCliente);
 end;
 
 end.
