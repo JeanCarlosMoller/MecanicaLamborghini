@@ -107,6 +107,8 @@ begin
       Self.Close;
 
   end;
+
+  MultiView1.HideMaster;
 end;
 
 procedure TfrmHomeUsuario.RemoverTelaAnterior;
