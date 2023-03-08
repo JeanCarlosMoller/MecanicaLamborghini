@@ -134,7 +134,7 @@ procedure TfraNovoOrcamento.rectAtualizarStatusClick(Sender: TObject);
 var
   xEmailWasSent: Boolean;
 begin
-  xEmailWasSent := TUtilsFunctions.EnviarEmail('jeancmoller17@gmail.com', 'Orçamento status: '
+  xEmailWasSent := TUtilsFunctions.EnviarEmail('carlosfelipeor@gmail.com', 'Orçamento status: '
     + cmbStatus.Items[cmbStatus.ItemIndex] + 'Mecanica Lamborghini',
     'Status atualizado para ' + cmbStatus.Items[cmbStatus.ItemIndex]);
 

@@ -24,7 +24,7 @@ type
     lblPlaca: TLabel;
     Label24: TLabel;
     Label10: TLabel;
-    Label23: TLabel;
+    lblMecanico: TLabel;
     Line4: TLine;
     lstListaOrcamentos: TLayout;
     lytOrcamentoPecas: TLayout;
@@ -43,9 +43,9 @@ type
     lytStatus: TLayout;
     Label1: TLabel;
     lblStatusOrcamento: TLabel;
-    rectAtualizarStatus: TRoundRect;
+    rectAprovarOrcamento: TRoundRect;
     Label13: TLabel;
-    RoundRect1: TRoundRect;
+    rectRecusarOrçamento: TRoundRect;
     Label2: TLabel;
     lytOrcamentosServicos: TLayout;
     lstItensServicos: TListView;
@@ -62,6 +62,8 @@ type
     Label20: TLabel;
     Line3: TLine;
     lblValorTotal: TLabel;
+    procedure FrameResized(Sender: TObject);
+    procedure rectAprovarOrcamentoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -74,5 +76,64 @@ fraOrcamentoCompletoCliente: TfraOrcamentoCompletoCliente;
 implementation
 
 {$R *.fmx}
+
+procedure TfraOrcamentoCompletoCliente.FrameResized(Sender: TObject);
+var
+  xItem : TListViewItem;
+begin
+  lblNomeCliente.Text     := 'João Silva';
+  lblCelular.Text         := '(47) 99922-5587';
+  lblCarro.Text           := 'Fiat Marea 2006';
+  lblPlaca.Text           := 'AAA6A98';
+  lblMecanico.Text        := 'Armando Correa';
+  lblStatusOrcamento.Text := 'Aguardando Aprovação Cliente';
+  lblTituloOrcamento.Text := 'ORÇAMENTO Nº 1564';
+  lblValorTotal.Text      := 'R$ 7.990,00';
+
+  xItem := lstItensPecas.Items.Add;
+  TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text := 'Cabeçote Motor Marea';
+  TListItemText(xItem.Objects.FindDrawable('txtQuantidade')).Text := '1';
+  TListItemText(xItem.Objects.FindDrawable('txtUnidadeMedida')).Text := 'unid.';
+  TListItemText(xItem.Objects.FindDrawable('txtValorUnitario')).Text := 'R$ 2790,00';
+  TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text := 'R$ 2790,00';
+
+  xItem := lstItensPecas.Items.Add;
+  TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text := 'Junta Cabeçote Motor Marea';
+  TListItemText(xItem.Objects.FindDrawable('txtQuantidade')).Text := '1';
+  TListItemText(xItem.Objects.FindDrawable('txtUnidadeMedida')).Text := 'unid.';
+  TListItemText(xItem.Objects.FindDrawable('txtValorUnitario')).Text := 'R$ 1000,00';
+  TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text := 'R$ 1000,00';
+
+  xItem := lstItensPecas.Items.Add;
+  TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text := 'Suspensão Marea';
+  TListItemText(xItem.Objects.FindDrawable('txtQuantidade')).Text := '4';
+  TListItemText(xItem.Objects.FindDrawable('txtUnidadeMedida')).Text := 'unid.';
+  TListItemText(xItem.Objects.FindDrawable('txtValorUnitario')).Text := 'R$ 500,00';
+  TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text := 'R$ 2000,00';
+
+  xItem := lstItensServicos.Items.Add;
+  TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text := 'Manutenção Suspensão Marea';
+  TListItemText(xItem.Objects.FindDrawable('txtQuantidade')).Text := '5';
+  TListItemText(xItem.Objects.FindDrawable('txtUnidadeMedida')).Text := 'h';
+  TListItemText(xItem.Objects.FindDrawable('txtValorUnitario')).Text := 'R$ 100,00';
+  TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text := 'R$ 500,00';
+
+  xItem := lstItensServicos.Items.Add;
+  TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text := 'Troca Cabeçote';
+  TListItemText(xItem.Objects.FindDrawable('txtQuantidade')).Text := '1';
+  TListItemText(xItem.Objects.FindDrawable('txtUnidadeMedida')).Text := 'Unid.';
+  TListItemText(xItem.Objects.FindDrawable('txtValorUnitario')).Text := 'R$ 1500,00';
+  TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text := 'R$ 1500,00';
+
+end;
+
+procedure TfraOrcamentoCompletoCliente.rectAprovarOrcamentoClick(
+  Sender: TObject);
+begin
+  ShowMessage('Orçamento Aprovado com Sucesso');
+  lblStatusOrcamento.Text := 'Aprovado e Aguardando Execução';
+  rectAprovarOrcamento.Visible := False;
+  rectRecusarOrçamento.Visible := False;
+end;
 
 end.

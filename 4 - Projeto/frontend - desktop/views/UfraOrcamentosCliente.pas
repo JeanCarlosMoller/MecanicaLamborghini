@@ -30,6 +30,7 @@ type
     Button1: TButton;
     procedure Button1Click(Sender: TObject);
     procedure rectVisualizarOrcamentoClick(Sender: TObject);
+    procedure FrameResized(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,6 +51,7 @@ procedure TfraOrcamentoCliente.Button1Click(Sender: TObject);
 var
   xItem: TListViewItem;
 begin
+
   xItem := lstOrcamentos.Items.Add;
 
   TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := '12344321';
@@ -59,6 +61,66 @@ begin
     'Aguardando aprovação';
 end;
 
+procedure TfraOrcamentoCliente.FrameResized(Sender: TObject);
+var
+  xItem: TListViewItem;
+begin
+
+  xItem := lstOrcamentos.Items.Add;
+
+  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := '1564';
+  TListItemText(xItem.Objects.FindDrawable('txtCliente')).Text :=
+    'Fiat Marea 2006';
+  TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text :=
+    'R$ 7.990,00';
+  TListItemText(xItem.Objects.FindDrawable('txtStatus')).Text :=
+    'Aguardando aprovação';
+
+  xItem := lstOrcamentos.Items.Add;
+
+  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text :=
+    FloatToStr(Random(9999));
+  TListItemText(xItem.Objects.FindDrawable('txtCliente')).Text :=
+    'Fiat Marea 2006';;
+  TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text :=
+    FormatFloat('R$ ###,###,##0.00', Random(9000));
+  TListItemText(xItem.Objects.FindDrawable('txtStatus')).Text :=
+    'Serviço Concluído';
+
+  xItem := lstOrcamentos.Items.Add;
+
+  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text :=
+    FloatToStr(Random(9999));
+  TListItemText(xItem.Objects.FindDrawable('txtCliente')).Text :=
+    'Celta Vermelho 2004';;
+  TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text :=
+    FormatFloat('R$ ###,###,##0.00', Random(2000));
+  TListItemText(xItem.Objects.FindDrawable('txtStatus')).Text :=
+    'Serviço Concluído';
+
+  xItem := lstOrcamentos.Items.Add;
+
+  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text :=
+    FloatToStr(Random(9999));
+  TListItemText(xItem.Objects.FindDrawable('txtCliente')).Text :=
+    'Celta Vermelho 2004';;
+  TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text :=
+    FormatFloat('R$ ###,###,##0.00', Random(2000));
+  TListItemText(xItem.Objects.FindDrawable('txtStatus')).Text :=
+    'Serviço Concluído';
+
+  xItem := lstOrcamentos.Items.Add;
+
+  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text :=
+    FloatToStr(Random(2000));
+  TListItemText(xItem.Objects.FindDrawable('txtCliente')).Text :=
+    'Celta Vermelho 2004';;
+  TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text :=
+    FormatFloat('R$ ###,###,##0.00', Random(2000));
+  TListItemText(xItem.Objects.FindDrawable('txtStatus')).Text :=
+    'Serviço Concluído';
+end;
+
 procedure TfraOrcamentoCliente.rectVisualizarOrcamentoClick(Sender: TObject);
 begin
 
@@ -66,11 +128,11 @@ begin
     Exit;
 
   if not Assigned(fraOrcamentoCompletoCliente) then
-    fraOrcamentoCompletoCliente := TfraOrcamentoCompletoCliente.Create(Application);
+    fraOrcamentoCompletoCliente := TfraOrcamentoCompletoCliente.Create
+      (Application);
 
   fraOrcamentoCompletoCliente.Align := TAlignLayout.Center;
   Self.Parent.AddObject(fraOrcamentoCompletoCliente);
-
 
 end;
 

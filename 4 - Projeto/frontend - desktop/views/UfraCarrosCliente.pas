@@ -32,6 +32,7 @@ type
     procedure rectNovoCarroClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure rectExcluirCarroClick(Sender: TObject);
+    procedure FrameResized(Sender: TObject);
   private
     { Private declarations }
     procedure ExcluirRegistro;
@@ -71,6 +72,21 @@ begin
     Exit;
 
   lstCarros.Items.Delete(lstCarros.ItemIndex);
+
+end;
+
+procedure TfraCarrosCliente.FrameResized(Sender: TObject);
+var
+  xItem: TListViewItem;
+begin
+  xItem := lstCarros.Items.Add;
+
+  TListItemText(xItem.Objects.FindDrawable('txtModelo')).Text :=
+    'Marea';
+  TListItemText(xItem.Objects.FindDrawable('txtMarca')).Text := 'Fiat';
+  TListItemText(xItem.Objects.FindDrawable('txtCor')).Text := 'Vermelho';
+  TListItemText(xItem.Objects.FindDrawable('txtAno')).Text := '2006';
+  TListItemText(xItem.Objects.FindDrawable('txtPlaca')).Text := 'AAA6A98';
 
 end;
 
