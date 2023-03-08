@@ -74,6 +74,7 @@ type
     procedure rectAdicionarItemClick(Sender: TObject);
     procedure lblValorTotalResized(Sender: TObject);
     procedure rectExcluirItemClick(Sender: TObject);
+    procedure rectAtualizarStatusClick(Sender: TObject);
   private
     { Private declarations }
     FValorTotal : Double;
@@ -86,6 +87,9 @@ type
 var
   fraNovoOrcamento: TfraNovoOrcamento;
 implementation
+
+uses
+  UUtils.Functions;
 
 {$R *.fmx}
 
@@ -124,6 +128,20 @@ begin
   TListItemText(xItem.Objects.FindDrawable('txtValorTotal')).Text := FloatToStr(xValorTotal);
 
   lblValorTotal.Text := FormatFloat('R$ ###,###,##0.00',FValorTotal);
+end;
+
+procedure TfraNovoOrcamento.rectAtualizarStatusClick(Sender: TObject);
+var
+  xEmailWasSent: Boolean;
+begin
+  xEmailWasSent := TUtilsFunctions.EnviarEmail('jeancmoller17@gmail.com', 'Orçamento status: '
+    + cmbStatus.Items[cmbStatus.ItemIndex] + 'Mecanica Lamborghini',
+    'Status atualizado para ' + cmbStatus.Items[cmbStatus.ItemIndex]);
+
+  if xEmailWasSent then
+    ShowMessage('E-mail enviado com sucesso.')
+  else
+    ShowMessage('Falha ao enviar e-mail.')
 end;
 
 procedure TfraNovoOrcamento.rectExcluirItemClick(Sender: TObject);
