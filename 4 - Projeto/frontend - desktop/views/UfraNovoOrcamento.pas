@@ -87,6 +87,9 @@ var
   fraNovoOrcamento: TfraNovoOrcamento;
 implementation
 
+uses
+  UUtils.Functions;
+
 {$R *.fmx}
 
 procedure TfraNovoOrcamento.lblValorTotalResized(Sender: TObject);
